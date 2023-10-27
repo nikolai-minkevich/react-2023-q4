@@ -3,17 +3,33 @@ import Content from '../Content';
 import './Page.css';
 import React from 'react';
 import ICard from '../../interfaces/ICard';
+import fetchAll from '../../services/punkapi';
 
-const cards: ICard[] = [{ title: '131', description: '22' }];
+type MyState = {
+  cards: ICard[];
+};
 
-class Page extends React.Component {
+class Page extends React.Component<void, MyState> {
+  state: MyState = {
+    cards: [],
+  };
+
+  async componentDidMount() {
+    this.setState({
+      cards: await fetchAll(),
+    });
+  }
+
   render() {
+    if (!this.state?.cards) {
+      return <></>;
+    }
     return (
       <>
         <div className="page">
-          <Nav message="111"></Nav>
+          <Nav></Nav>
 
-          <Content cards={cards}></Content>
+          <Content cards={this.state.cards}></Content>
         </div>
       </>
     );

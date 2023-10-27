@@ -24,7 +24,11 @@ class Content extends React.Component<ContentProps, MyState> {
     return (
       <div>
         {this.props.cards.map((card) => (
-          <Card title={card.title} description={card.description}></Card>
+          <Card
+            name={card.name}
+            description={card.description}
+            image_url={card.image_url}
+          ></Card>
         ))}
       </div>
     );

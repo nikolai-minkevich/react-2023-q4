@@ -2,18 +2,7 @@ import React from 'react';
 import './Nav.css';
 import Search from '../Search';
 
-type NavProps = {
-  // using `interface` is also ok
-  message: string;
-};
-type MyState = {
-  count: number; // like this
-};
-class Navbar extends React.Component<NavProps, MyState> {
-  state: MyState = {
-    // optional second annotation for better type inference
-    count: 0,
-  };
+class Navbar extends React.Component {
   render() {
     return (
       <>

@@ -1,0 +1,17 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+  background-color: cadetblue;
+}
+
+.nav__logo {
+  width: 50%;
+  background-color: brown;
+}
+
+.nav__search {
+  width: 50%;
+  background-color: goldenrod;
+}

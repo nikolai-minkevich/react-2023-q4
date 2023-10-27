@@ -22,12 +22,13 @@ class Content extends React.Component<ContentProps, MyState> {
     }
 
     return (
-      <div>
-        {this.props.cards.map((card) => (
+      <div className="content">
+        {this.props.cards.map((card, index) => (
           <Card
             name={card.name}
             description={card.description}
             image_url={card.image_url}
+            key={index}
           ></Card>
         ))}
       </div>

@@ -21,9 +21,6 @@ class Page extends React.Component<void, MyState> {
   }
 
   render() {
-    if (!this.state?.cards) {
-      return <></>;
-    }
     return (
       <>
         <div className="page">

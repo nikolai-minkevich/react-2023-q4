@@ -15,16 +15,20 @@ class Page extends React.Component<void, MyState> {
   };
 
   async componentDidMount() {
-    this.setState({
-      cards: await fetchAll(),
-    });
+    await this.fetchItems();
   }
+
+  fetchItems = async (term: string | void) => {
+    this.setState({
+      cards: await fetchAll(term),
+    });
+  };
 
   render() {
     return (
       <>
         <div className="page">
-          <Nav></Nav>
+          <Nav searchAction={this.fetchItems}></Nav>
 
           <Content cards={this.state.cards}></Content>
         </div>

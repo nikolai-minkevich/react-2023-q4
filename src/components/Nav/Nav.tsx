@@ -3,7 +3,7 @@ import './Nav.css';
 import Search from '../Search';
 import Logo from '../Logo';
 
-class Navbar extends React.Component {
+class Navbar extends React.Component<{ searchAction: (term: string) => void }> {
   render() {
     return (
       <>
@@ -12,7 +12,10 @@ class Navbar extends React.Component {
             <Logo></Logo>
           </div>
           <div className="nav__search">
-            <Search message="Search"></Search>
+            <Search
+              placeholder="Search..."
+              searchAction={this.props.searchAction}
+            ></Search>
           </div>
         </div>
       </>

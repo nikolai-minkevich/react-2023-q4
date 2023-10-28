@@ -38,7 +38,16 @@ class Page extends React.Component<Record<string, never>, PageState> {
   render() {
     return (
       <>
-        <ErrorBoundary fallback={<p>Something went wrong</p>}>
+        <ErrorBoundary
+          fallback={
+            <p>
+              {' '}
+              🥳 Don't worry! It is just an example of error handling by the{' '}
+              <strong>ErrorBoundary</strong> component. Refresh page for
+              continue.
+            </p>
+          }
+        >
           <div className="page">
             <Nav searchAction={this.fetchItems}></Nav>
 

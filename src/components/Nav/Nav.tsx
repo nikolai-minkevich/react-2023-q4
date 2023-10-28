@@ -13,7 +13,7 @@ class Navbar extends React.Component<{ searchAction: (term: string) => void }> {
           </div>
           <div className="nav__search">
             <Search
-              placeholder="Search..."
+              placeholder="Search by title"
               searchAction={this.props.searchAction}
             ></Search>
           </div>

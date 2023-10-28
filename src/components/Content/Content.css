@@ -1,7 +1,7 @@
 .content {
   display: flex;
-  justify-content: space-evenly;
-  align-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding: 20px;
+  gap: 12px;
 }

@@ -22,8 +22,9 @@ class Search extends React.Component<SearchProps, SearchState> {
   };
 
   onSearch = (): void => {
-    localStorage.setItem('term', this.state.term);
-    this.props.searchAction(this.state.term);
+    const term = this.state.term.trim();
+    localStorage.setItem('term', term);
+    this.props.searchAction(term);
   };
 
   componentDidMount(): void {

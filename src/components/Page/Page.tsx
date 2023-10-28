@@ -14,11 +14,20 @@ class Page extends React.Component<null, PageState> {
     cards: null,
   };
 
+  controller = new AbortController();
+
   async componentDidMount(): Promise<void> {
     await this.fetchItems();
   }
 
+  componentWillUnmount(): void {
+    this.controller.abort();
+  }
+
   fetchItems = async (term: string | void): Promise<void> => {
+    this.setState({
+      cards: null,
+    });
     this.setState({
       cards: await fetchAll(term),
     });

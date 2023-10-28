@@ -1,5 +1,5 @@
 .card {
-  width: 23%;
+  width: 20%;
   height: 150px;
   border-width: 2px;
   border-style: solid;
@@ -12,6 +12,7 @@
   align-content: center;
   padding: 10px;
   margin-bottom: 10px;
+  margin-right: 5px;
 }
 
 .card:hover {
@@ -20,10 +21,6 @@
 
 .card__section-image {
   padding: 1px;
-}
-
-.card__section-about {
-  margin-left: 10px;
 }
 
 .card__name {

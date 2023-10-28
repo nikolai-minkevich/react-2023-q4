@@ -1,7 +1,6 @@
 interface ICard {
-  name: string;
-  description: string;
-  image_url: string;
+  title: string;
+  opening_crawl: string;
 }
 
 export default ICard;

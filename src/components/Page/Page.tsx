@@ -3,22 +3,22 @@ import Content from '../Content';
 import './Page.css';
 import React from 'react';
 import ICard from '../../interfaces/ICard';
-import fetchAll from '../../services/punkapi';
+import fetchAll from '../../services/swapi';
 
-type MyState = {
-  cards: ICard[];
+type PageState = {
+  cards: ICard[] | null;
 };
 
-class Page extends React.Component<void, MyState> {
-  state: MyState = {
-    cards: [],
+class Page extends React.Component<null, PageState> {
+  state: PageState = {
+    cards: null,
   };
 
-  async componentDidMount() {
+  async componentDidMount(): Promise<void> {
     await this.fetchItems();
   }
 
-  fetchItems = async (term: string | void) => {
+  fetchItems = async (term: string | void): Promise<void> => {
     this.setState({
       cards: await fetchAll(term),
     });

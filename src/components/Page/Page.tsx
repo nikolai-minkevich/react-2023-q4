@@ -1,5 +1,6 @@
 import Nav from '../Nav';
 import Content from '../Content';
+import ErrorBoundary from '../ErrorBoundary';
 import './Page.css';
 import React from 'react';
 import ICard from '../../interfaces/ICard';
@@ -9,7 +10,7 @@ type PageState = {
   cards: ICard[] | null;
 };
 
-class Page extends React.Component<null, PageState> {
+class Page extends React.Component<Record<string, never>, PageState> {
   state: PageState = {
     cards: null,
   };
@@ -36,11 +37,13 @@ class Page extends React.Component<null, PageState> {
   render() {
     return (
       <>
-        <div className="page">
-          <Nav searchAction={this.fetchItems}></Nav>
+        <ErrorBoundary fallback={<p>Something went wrong</p>}>
+          <div className="page">
+            <Nav searchAction={this.fetchItems}></Nav>
 
-          <Content cards={this.state.cards}></Content>
-        </div>
+            <Content cards={this.state.cards}></Content>
+          </div>
+        </ErrorBoundary>
       </>
     );
   }

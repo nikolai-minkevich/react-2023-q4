@@ -28,12 +28,15 @@ class Search extends React.Component<SearchProps, SearchState> {
   };
 
   componentDidMount(): void {
-    // const term = localStorage.getItem("term");
-    // if (term) {
-    //   this.setState({
-    //     term: term
-    //   }, () => this.onSearch());
-    // }
+    const term = localStorage.getItem('term');
+    if (term) {
+      this.setState(
+        {
+          term: term,
+        },
+        () => this.onSearch()
+      );
+    }
   }
 
   render() {
@@ -42,6 +45,7 @@ class Search extends React.Component<SearchProps, SearchState> {
         <input
           className="search__input"
           type="text"
+          defaultValue={this.state.term}
           placeholder={this.props.placeholder}
           onChange={this.changeInput}
         ></input>

@@ -30,12 +30,9 @@ class Search extends React.Component<SearchProps, SearchState> {
   componentDidMount(): void {
     const term = localStorage.getItem('term');
     if (term) {
-      this.setState(
-        {
-          term: term,
-        },
-        () => this.onSearch()
-      );
+      this.setState({
+        term: term,
+      });
     }
   }
 

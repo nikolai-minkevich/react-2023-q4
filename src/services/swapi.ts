@@ -2,7 +2,7 @@ import ICard from '../interfaces/ICard';
 
 const ROOT = 'https://swapi.dev/api';
 
-async function fetchAll(term: string | void): Promise<ICard[]> {
+async function fetchAll(term: string | null): Promise<ICard[]> {
   const url = `${ROOT}/films?`;
 
   let params = null;

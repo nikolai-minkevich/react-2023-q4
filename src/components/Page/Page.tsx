@@ -18,14 +18,15 @@ class Page extends React.Component<Record<string, never>, PageState> {
   controller = new AbortController();
 
   async componentDidMount(): Promise<void> {
-    await this.fetchItems();
+    const term = localStorage.getItem('term');
+    await this.fetchItems(term);
   }
 
   componentWillUnmount(): void {
     this.controller.abort();
   }
 
-  fetchItems = async (term: string | void): Promise<void> => {
+  fetchItems = async (term: string | null): Promise<void> => {
     this.setState({
       cards: null,
     });

@@ -2,22 +2,20 @@ import React from 'react';
 import './Search.css';
 
 type SearchProps = {
-  // using `interface` is also ok
   message: string;
 };
 type MyState = {
-  count: number; // like this
+  count: number;
 };
 class Search extends React.Component<SearchProps, MyState> {
   state: MyState = {
-    // optional second annotation for better type inference
     count: 0,
   };
   render() {
     return (
-      <div>
-        <input type="text"></input>
-        <button>Search</button>
+      <div className="search">
+        <input className="search__input" type="text"></input>
+        <button className="search__button">Search</button>
       </div>
     );
   }

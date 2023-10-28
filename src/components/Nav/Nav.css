@@ -8,11 +8,13 @@
 }
 
 .nav__logo {
-  width: 50%;
+  width: 30%;
   background-color: brown;
 }
 
 .nav__search {
-  width: 50%;
+  width: 70%;
   background-color: goldenrod;
+  display: flex;
+  justify-content: flex-end;
 }

@@ -26,6 +26,4 @@ class Card extends React.Component<CardProps, MyState> {
   }
 }
 
-const test: any;
-
 export default Card;

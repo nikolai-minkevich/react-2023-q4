@@ -6,6 +6,7 @@
 .search__input {
   width: 350px;
   color: aliceblue;
+  background-color: rgb(46, 46, 46);
   font-size: large;
   padding-left: 10px;
 }

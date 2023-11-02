@@ -1,3 +1,3 @@
-import App from './Page';
+import Page from './Page';
 
-export default App;
+export default Page;

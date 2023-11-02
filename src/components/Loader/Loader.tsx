@@ -1,10 +1,6 @@
-import React from 'react';
+import { FC } from 'react';
 import './Loader.css';
 
-class Loader extends React.Component {
-  render() {
-    return <div>Loading...</div>;
-  }
-}
+const Loader: FC = (): React.JSX.Element => <div>Loading...</div>;
 
 export default Loader;

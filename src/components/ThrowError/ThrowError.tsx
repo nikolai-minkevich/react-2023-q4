@@ -1,41 +1,28 @@
-import React from 'react';
+import { FC, useState } from 'react';
 import './ThrowError.css';
 
-type ThrowErrorState = {
-  showErrorElement: boolean;
-};
+type TThrowErrorState = boolean;
 
-class ThrowError extends React.Component<object, ThrowErrorState> {
-  state: ThrowErrorState = {
-    showErrorElement: false,
-  };
+const ThrowError: FC = (): React.JSX.Element => {
+  const [showErrorElement, setShowErrorElement] =
+    useState<TThrowErrorState>(false);
 
-  onClick = (): void => {
-    this.setState({
-      showErrorElement: true,
-    });
-  };
+  const handleClick = (): void => setShowErrorElement(true);
 
   // type 'any' here is only for demonstrate how ErrorBoundary will handle an error
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  test: any;
+  const test: any = {};
 
-  render() {
-    if (this.state.showErrorElement) {
-      return (
-        <>
-          <div>{this.test.data}</div>
-        </>
-      );
-    }
-    return (
-      <div className="throw-error">
-        <button className="throw-error__button" onClick={this.onClick}>
-          Throw an error
-        </button>
-      </div>
-    );
+  if (showErrorElement) {
+    return <div>{test.data.test}</div>;
   }
-}
+  return (
+    <div className="throw-error">
+      <button className="throw-error__button" onClick={handleClick}>
+        Throw an error
+      </button>
+    </div>
+  );
+};
 
 export default ThrowError;

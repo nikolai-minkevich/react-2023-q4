@@ -1,57 +1,41 @@
-import React, { ChangeEvent } from 'react';
+import { FC, ChangeEvent, useState } from 'react';
 import './Search.css';
 
-type SearchProps = {
+type TSearchProps = {
   placeholder: string;
-  searchAction: (term: string) => void;
+  setTerm: (term: string) => void;
 };
 
-type SearchState = {
-  term: string;
+const Search: FC<TSearchProps> = ({
+  placeholder,
+  setTerm,
+}): React.JSX.Element => {
+  const defaultInputValue = localStorage.getItem('term') ?? '';
+  const [inputValue, setInputValue] = useState<string>(defaultInputValue);
+
+  const changeInput = (event: ChangeEvent<HTMLInputElement>): void => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSearch = (): void => {
+    localStorage.setItem('term', inputValue);
+    setTerm(inputValue);
+  };
+
+  return (
+    <div className="search">
+      <input
+        className="search__input"
+        type="text"
+        defaultValue={inputValue}
+        placeholder={placeholder}
+        onChange={changeInput}
+      />
+      <button className="search__button" onClick={handleSearch}>
+        Search
+      </button>
+    </div>
+  );
 };
-
-class Search extends React.Component<SearchProps, SearchState> {
-  state: SearchState = {
-    term: '',
-  };
-
-  changeInput = (event: ChangeEvent<HTMLInputElement>): void => {
-    this.setState({
-      term: event.target.value,
-    });
-  };
-
-  onSearch = (): void => {
-    const term = this.state.term.trim();
-    localStorage.setItem('term', term);
-    this.props.searchAction(term);
-  };
-
-  componentDidMount(): void {
-    const term = localStorage.getItem('term');
-    if (term) {
-      this.setState({
-        term: term,
-      });
-    }
-  }
-
-  render() {
-    return (
-      <div className="search">
-        <input
-          className="search__input"
-          type="text"
-          defaultValue={this.state.term}
-          placeholder={this.props.placeholder}
-          onChange={this.changeInput}
-        ></input>
-        <button className="search__button" onClick={this.onSearch}>
-          Search
-        </button>
-      </div>
-    );
-  }
-}
 
 export default Search;

@@ -1,12 +1,12 @@
 import { FC, useEffect, useState, useCallback } from 'react';
-import fetchAll from '../../services/swapi';
+import fetchAll from '../../services/stapi';
 import Nav from '../Nav';
 import Content from '../Content';
 import ErrorBoundary from '../ErrorBoundary';
-import ICard from '../../interfaces/ICard';
+import IEpisode from '../../interfaces/IEpisode';
 import './Page.css';
 
-type TPageState = ICard[] | null;
+type TPageState = IEpisode[] | null;
 type TSearchState = string;
 
 const Page: FC = (): React.JSX.Element => {

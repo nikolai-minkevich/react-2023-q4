@@ -1,19 +1,16 @@
 import { FC } from 'react';
 import './Card.css';
+import IEpisode from '../../interfaces/IEpisode';
 
 type TCardProps = {
-  title: string;
-  opening_crawl: string;
+  card: IEpisode;
 };
 
-const Card: FC<TCardProps> = ({ title, opening_crawl }) => {
+const Card: FC<TCardProps> = ({ card }) => {
   return (
     <div className="card">
       <div className="card__section-about">
-        <div className="card__name">{title}</div>
-        <div className="card__description">
-          {opening_crawl.substring(0, 125)}...
-        </div>
+        <div className="card__name">{card.title}</div>
       </div>
     </div>
   );

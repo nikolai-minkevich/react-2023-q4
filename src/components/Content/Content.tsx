@@ -1,11 +1,11 @@
 import { FC, Key } from 'react';
 import './Content.css';
 import Card from '../Card';
-import ICard from '../../interfaces/ICard';
+import IEpisode from '../../interfaces/IEpisode';
 import Loader from '../Loader';
 
 type TContentProps = {
-  cards: ICard[] | null;
+  cards: IEpisode[] | null;
 };
 
 const Content: FC<TContentProps> = ({ cards }): React.JSX.Element => {
@@ -23,18 +23,9 @@ const Content: FC<TContentProps> = ({ cards }): React.JSX.Element => {
 
   return (
     <div className="content">
-      {cards.map(
-        (
-          card: { title: string; opening_crawl: string },
-          index: Key | null | undefined
-        ) => (
-          <Card
-            title={card.title}
-            opening_crawl={card.opening_crawl}
-            key={index}
-          ></Card>
-        )
-      )}
+      {cards.map((card: IEpisode, index: Key) => (
+        <Card card={card} key={index}></Card>
+      ))}
     </div>
   );
 };

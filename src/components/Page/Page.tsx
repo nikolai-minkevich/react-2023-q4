@@ -1,5 +1,5 @@
 import { FC, useEffect, useState, useCallback } from 'react';
-import fetchAll from '../../services/stapi';
+import getEpisodes from '../../services/stapi';
 import Nav from '../Nav';
 import Content from '../Content';
 import ErrorBoundary from '../ErrorBoundary';
@@ -18,7 +18,7 @@ const Page: FC = (): React.JSX.Element => {
   const fetchItems = useCallback(async () => {
     setCards(null);
     setPage(null);
-    const cards = await fetchAll(term);
+    const cards = await getEpisodes(term);
     setCards(cards.episodes);
     setPage(cards.page);
   }, [term]);

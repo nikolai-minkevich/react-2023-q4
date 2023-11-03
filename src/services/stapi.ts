@@ -2,7 +2,7 @@ import IEpisodesResponse from '../interfaces/IEpisodesResponse';
 
 const ROOT = 'https://stapi.co/api/v1/rest';
 
-async function fetchAll(term: string | null): Promise<IEpisodesResponse> {
+async function getEpisodes(term: string | null): Promise<IEpisodesResponse> {
   const url = `${ROOT}/episode/search?`;
 
   let body = null;
@@ -23,4 +23,4 @@ async function fetchAll(term: string | null): Promise<IEpisodesResponse> {
   return response || {};
 }
 
-export default fetchAll;
+export default getEpisodes;

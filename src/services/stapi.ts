@@ -7,7 +7,7 @@ async function fetchAll(term: string | null): Promise<IEpisodesResponse> {
 
   let body = null;
   if (term) {
-    body = new URLSearchParams({ search: term }).toString();
+    body = new URLSearchParams({ title: term }).toString();
   }
 
   const response = await fetch(url, {

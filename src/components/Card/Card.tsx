@@ -11,6 +11,7 @@ const Card: FC<TCardProps> = ({ card }) => {
     <div className="card">
       <div className="card__section-about">
         <div className="card__name">{card.title}</div>
+        <div className="card__description">{card.usAirDate}</div>
       </div>
     </div>
   );

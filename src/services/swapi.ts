@@ -5,7 +5,7 @@ const ROOT = 'https://swapi.dev/api';
 async function fetchAll(term: string | null): Promise<ICard[]> {
   const url = `${ROOT}/films?`;
 
-  let params = null;
+  let params = '';
   if (term) {
     params = new URLSearchParams({ search: term }).toString();
   }

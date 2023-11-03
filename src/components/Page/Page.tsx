@@ -18,7 +18,7 @@ const Page: FC = (): React.JSX.Element => {
     setCards(null);
     const cards = await fetchAll(term);
 
-    setCards(cards);
+    setCards(cards.episodes);
   }, [term]);
 
   useEffect(() => {

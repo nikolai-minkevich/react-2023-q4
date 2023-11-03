@@ -1,8 +1,8 @@
-import IEpisode from '../interfaces/IEpisode';
+import IEpisodesResponse from '../interfaces/IEpisodesResponse';
 
 const ROOT = 'https://stapi.co/api/v1/rest';
 
-async function fetchAll(term: string | null): Promise<IEpisode[]> {
+async function fetchAll(term: string | null): Promise<IEpisodesResponse> {
   const url = `${ROOT}/episode/search?`;
 
   console.log('term', term);
@@ -15,9 +15,9 @@ async function fetchAll(term: string | null): Promise<IEpisode[]> {
     body: null,
   })
     .then((response) => response.json())
-    .then((response) => response.episodes);
+    .then((response) => response);
 
-  return response || [];
+  return response || {};
 }
 
 export default fetchAll;

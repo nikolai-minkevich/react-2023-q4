@@ -3,12 +3,15 @@ import './Content.css';
 import Card from '../Card';
 import IEpisode from '../../interfaces/IEpisode';
 import Loader from '../Loader';
+import Pagination from '../Pagination';
+import IPage from '../../interfaces/IPage';
 
 type TContentProps = {
   cards: IEpisode[] | null;
+  page: IPage | null;
 };
 
-const Content: FC<TContentProps> = ({ cards }): React.JSX.Element => {
+const Content: FC<TContentProps> = ({ cards, page }): React.JSX.Element => {
   if (!cards) {
     return (
       <div className="content">
@@ -22,11 +25,16 @@ const Content: FC<TContentProps> = ({ cards }): React.JSX.Element => {
   }
 
   return (
-    <div className="content">
-      {cards.map((card: IEpisode, index: Key) => (
-        <Card card={card} key={index}></Card>
-      ))}
-    </div>
+    <>
+      <div className="pagination">
+        <Pagination page={page}></Pagination>
+      </div>
+      <div className="content">
+        {cards.map((card: IEpisode, index: Key) => (
+          <Card card={card} key={index}></Card>
+        ))}
+      </div>
+    </>
   );
 };
 

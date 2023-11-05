@@ -2,12 +2,33 @@ import IEpisodesResponse from '../interfaces/IEpisodesResponse';
 
 const ROOT = 'https://stapi.co/api/v1/rest';
 
-async function getEpisodes(term: string | null): Promise<IEpisodesResponse> {
-  const url = `${ROOT}/episode/search?`;
+interface IGetEpisodesProps {
+  term: string;
+  pageNumber?: number;
+  pageSize?: number;
+}
+
+async function getEpisodes({
+  term,
+  pageNumber,
+  pageSize,
+}: IGetEpisodesProps): Promise<IEpisodesResponse> {
+  let url = `${ROOT}/episode/search?`;
+
+  // todo refactor
+  if (pageNumber) {
+    url += `pageNumber=${pageNumber}&`;
+  }
+
+  if (pageSize) {
+    url += `pageSize=${pageSize}&`;
+  }
+
+  console.log('url', url);
 
   let body = null;
   if (term) {
-    body = new URLSearchParams({ title: term }).toString();
+    body = new URLSearchParams({ title: term, name: term }).toString();
   }
 
   const response = await fetch(url, {

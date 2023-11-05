@@ -6,6 +6,7 @@ import ErrorBoundary from '../ErrorBoundary';
 import IEpisode from '../../interfaces/IEpisode';
 import IPage from '../../interfaces/IPage';
 import './Page.css';
+import { useNavigate } from 'react-router-dom';
 
 type TSearchState = string;
 
@@ -14,18 +15,33 @@ const Page: FC = (): React.JSX.Element => {
   const [term, setTerm] = useState<TSearchState>(defaultTerm);
   const [cards, setCards] = useState<IEpisode[] | null>(null);
   const [page, setPage] = useState<IPage | null>(null);
+  const [pageNumber, setPageNumber] = useState<number | undefined>();
+  const [pageSize, setPageSize] = useState<number | undefined>();
+
+  const navigate = useNavigate();
 
   const fetchItems = useCallback(async () => {
     setCards(null);
     setPage(null);
-    const cards = await getEpisodes(term);
-    setCards(cards.episodes);
-    setPage(cards.page);
-  }, [term]);
+    const response = await getEpisodes({ term, pageNumber, pageSize });
+    setCards(response.episodes);
+    setPage(response.page);
+  }, [term, pageNumber, pageSize]);
 
   useEffect(() => {
     fetchItems();
   }, [fetchItems, term]);
+
+  useEffect(() => {
+    let url = `${location.pathname}?`;
+    if (pageNumber) {
+      url += `pageNumber=${pageNumber}&`;
+    }
+    if (pageSize) {
+      url += `pageNumber=${pageSize}&`;
+    }
+    navigate(url);
+  }, [navigate, pageNumber, pageSize]);
 
   return (
     <>
@@ -40,7 +56,12 @@ const Page: FC = (): React.JSX.Element => {
         <div className="page">
           <Nav setTerm={setTerm}></Nav>
 
-          <Content cards={cards} page={page}></Content>
+          <Content
+            cards={cards}
+            page={page}
+            setPageNumber={setPageNumber}
+            setPageSize={setPageSize}
+          ></Content>
         </div>
       </ErrorBoundary>
     </>

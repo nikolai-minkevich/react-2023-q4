@@ -20,7 +20,9 @@ const DetailedView: FC<IDetailedViewProps> = ({
   if (!detailedInfo) {
     return (
       <>
-        <Loader />
+        <div className="detailed-view">
+          <Loader />
+        </div>
       </>
     );
   }

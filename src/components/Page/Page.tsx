@@ -1,5 +1,5 @@
 import { FC, useEffect, useState, useCallback } from 'react';
-import { getEpisodes } from '../../services/stapi';
+import { getEpisode, getEpisodes } from '../../services/stapi';
 import Nav from '../Nav';
 import Content from '../Content';
 import ErrorBoundary from '../ErrorBoundary';
@@ -7,6 +7,7 @@ import IEpisode from '../../interfaces/IEpisode';
 import IPage from '../../interfaces/IPage';
 import './Page.css';
 import { useNavigate } from 'react-router-dom';
+import IEpisodeDetailed from '../../interfaces/IEpisodeDetailed';
 
 type TSearchState = string;
 
@@ -22,6 +23,9 @@ const Page: FC = (): React.JSX.Element => {
     DEFAULT_PAGE_SIZE
   );
   const [selectedCard, setSelectedCard] = useState<string | undefined>();
+  const [detailedInfo, setDetailedInfo] = useState<IEpisodeDetailed | null>(
+    null
+  );
 
   const navigate = useNavigate();
 
@@ -45,8 +49,25 @@ const Page: FC = (): React.JSX.Element => {
     if (pageSize) {
       url += `pageSize=${pageSize}&`;
     }
+    if (selectedCard) {
+      url += `&detailed=${selectedCard}`;
+    }
     navigate(url);
-  }, [navigate, pageNumber, pageSize]);
+  }, [navigate, pageNumber, pageSize, selectedCard]);
+
+  const fetchItem = useCallback(async () => {
+    setDetailedInfo(null);
+    if (selectedCard) {
+      const response = await getEpisode({ uid: selectedCard });
+      setDetailedInfo(response.episode);
+    }
+  }, [selectedCard]);
+
+  useEffect(() => {
+    if (selectedCard) {
+      fetchItem();
+    }
+  }, [fetchItem, selectedCard]);
 
   return (
     <>
@@ -68,6 +89,7 @@ const Page: FC = (): React.JSX.Element => {
             setPageSize={setPageSize}
             selectedCard={selectedCard}
             setSelectedCard={setSelectedCard}
+            detailedInfo={detailedInfo}
           />
         </div>
       </ErrorBoundary>

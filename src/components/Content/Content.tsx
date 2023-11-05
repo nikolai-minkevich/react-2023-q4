@@ -1,12 +1,4 @@
-import {
-  Dispatch,
-  FC,
-  Key,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { Dispatch, FC, Key, SetStateAction } from 'react';
 import './Content.css';
 import Card from '../Card';
 import IEpisode from '../../interfaces/IEpisode';
@@ -14,9 +6,7 @@ import Loader from '../Loader';
 import Pagination from '../Pagination';
 import DetailedView from '../DetailedView';
 import IPage from '../../interfaces/IPage';
-import { getEpisode } from '../../services/stapi';
 import IEpisodeDetailed from '../../interfaces/IEpisodeDetailed';
-
 type TContentProps = {
   cards: IEpisode[] | null;
   page: IPage | null;
@@ -24,6 +14,7 @@ type TContentProps = {
   setPageSize: Dispatch<SetStateAction<number | undefined>>;
   selectedCard?: string;
   setSelectedCard: Dispatch<SetStateAction<string | undefined>>;
+  detailedInfo: IEpisodeDetailed | null;
 };
 
 const Content: FC<TContentProps> = ({
@@ -33,25 +24,8 @@ const Content: FC<TContentProps> = ({
   setPageSize,
   selectedCard,
   setSelectedCard,
+  detailedInfo,
 }: TContentProps): React.JSX.Element => {
-  const [detailedInfo, setDetailedInfo] = useState<IEpisodeDetailed | null>(
-    null
-  );
-
-  const fetchItem = useCallback(async () => {
-    setDetailedInfo(null);
-    if (selectedCard) {
-      const response = await getEpisode({ uid: selectedCard });
-      setDetailedInfo(response.episode);
-    }
-  }, [selectedCard]);
-
-  useEffect(() => {
-    if (selectedCard) {
-      fetchItem();
-    }
-  }, [fetchItem, selectedCard]);
-
   if (!cards || !page) {
     return (
       <>

@@ -35,21 +35,16 @@ export async function getEpisodes({
   pageSize,
 }: IGetEpisodesProps): Promise<IEpisodesResponse> {
   let url = `${ROOT}/episode/search?`;
-
-  // todo refactor
   if (pageNumber) {
     url += `pageNumber=${pageNumber}&`;
   }
-
   if (pageSize) {
     url += `pageSize=${pageSize}&`;
   }
-
   let body = null;
   if (term) {
     body = new URLSearchParams({ title: term, name: term }).toString();
   }
-
   const response = await fetch(url, {
     method: 'POST',
     headers: {

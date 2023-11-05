@@ -21,9 +21,11 @@ const Content: FC<TContentProps> = ({
 }): React.JSX.Element => {
   if (!cards || !page) {
     return (
-      <div className="content">
-        <Loader></Loader>
-      </div>
+      <>
+        <div className="content">
+          <Loader></Loader>
+        </div>
+      </>
     );
   }
 

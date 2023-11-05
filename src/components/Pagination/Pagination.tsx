@@ -40,16 +40,20 @@ const Card: FC<TCardProps> = ({ page, setPageNumber, setPageSize }) => {
   if (page) {
     return (
       <div className="pagination">
-        <button onClick={handlePrev}>Prev.</button>
-        <button onClick={handleNext}>Next.</button>
-        Page {page.pageNumber + 1} of {page.totalPages}. Show {page.pageSize}{' '}
-        items per page.
+        <button onClick={handlePrev} disabled={page.firstPage}>
+          Prev.
+        </button>
+        <button onClick={handleNext} disabled={page.lastPage}>
+          Next.
+        </button>
+        Page {page.pageNumber + 1} of {page.totalPages}. Show
         <select value={page.pageSize} onChange={handlePageSize}>
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="15">15</option>
           <option value="25">25</option>
         </select>
+        items per page.
       </div>
     );
   }

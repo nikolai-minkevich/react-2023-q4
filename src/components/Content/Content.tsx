@@ -7,6 +7,7 @@ import Pagination from '../Pagination';
 import DetailedView from '../DetailedView';
 import IPage from '../../interfaces/IPage';
 import { getEpisode } from '../../services/stapi';
+import IEpisodeDetailed from '../../interfaces/IEpisodeDetailed';
 
 type TContentProps = {
   cards: IEpisode[] | null;
@@ -25,7 +26,9 @@ const Content: FC<TContentProps> = ({
   selectedCard,
   setSelectedCard,
 }): React.JSX.Element => {
-  const [detailedInfo, setDetailedInfo] = useState<IEpisode | null>(null);
+  const [detailedInfo, setDetailedInfo] = useState<IEpisodeDetailed | null>(
+    null
+  );
 
   const fetchItem = useCallback(async () => {
     setDetailedInfo(null);
@@ -71,9 +74,7 @@ const Content: FC<TContentProps> = ({
             ></Card>
           ))}
         </div>
-        {selectedCard && detailedInfo && (
-          <DetailedView detailedInfo={detailedInfo} />
-        )}
+        {selectedCard && <DetailedView detailedInfo={detailedInfo} />}
       </div>
     </>
   );

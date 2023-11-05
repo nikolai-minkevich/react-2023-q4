@@ -13,12 +13,13 @@ const Card: FC<TCardProps> = ({ card, isSelected, setSelectedCard }) => {
     setSelectedCard(card.uid);
   };
   return (
-    <div className="card" onClick={handleSelect}>
+    <div
+      className={`card ${isSelected && 'card_selected'}`}
+      onClick={handleSelect}
+    >
       <div className="card__section-about">
         <div className="card__name">{card.title}</div>
         <div className="card__description">{card.usAirDate}</div>
-        <div className="card__description">{card.uid}</div>
-        {isSelected ? <>SELECTED</> : <></>}
       </div>
     </div>
   );

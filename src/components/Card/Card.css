@@ -32,3 +32,11 @@
 .card__image {
   height: 120px;
 }
+
+.card_selected {
+  background-color: chocolate;
+}
+
+.card_selected:hover {
+  background-color: rgb(162, 82, 24);
+}

@@ -1,4 +1,12 @@
-import { FC, Key, useCallback, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  FC,
+  Key,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import './Content.css';
 import Card from '../Card';
 import IEpisode from '../../interfaces/IEpisode';
@@ -12,10 +20,10 @@ import IEpisodeDetailed from '../../interfaces/IEpisodeDetailed';
 type TContentProps = {
   cards: IEpisode[] | null;
   page: IPage | null;
-  setPageNumber: (pageNumber: string) => void;
-  setPageSize: (pageSize: string) => void;
-  selectedCard: string;
-  setSelectedCard: (selectedCard: string) => void;
+  setPageNumber: Dispatch<SetStateAction<number | undefined>>;
+  setPageSize: Dispatch<SetStateAction<number | undefined>>;
+  selectedCard?: string;
+  setSelectedCard: Dispatch<SetStateAction<string | undefined>>;
 };
 
 const Content: FC<TContentProps> = ({
@@ -32,8 +40,10 @@ const Content: FC<TContentProps> = ({
 
   const fetchItem = useCallback(async () => {
     setDetailedInfo(null);
-    const response = await getEpisode({ uid: selectedCard });
-    setDetailedInfo(response.episode);
+    if (selectedCard) {
+      const response = await getEpisode({ uid: selectedCard });
+      setDetailedInfo(response.episode);
+    }
   }, [selectedCard]);
 
   useEffect(() => {

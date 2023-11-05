@@ -1,11 +1,11 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, Dispatch, SetStateAction, ChangeEvent } from 'react';
 import './Pagination.css';
 import IPage from '../../interfaces/IPage';
 
 type TCardProps = {
   page: IPage;
-  setPageNumber: (prevCount: number) => number;
-  setPageSize: (prevSize: number) => number;
+  setPageNumber: Dispatch<SetStateAction<number | undefined>>;
+  setPageSize: Dispatch<SetStateAction<number | undefined>>;
 };
 
 const Card: FC<TCardProps> = ({ page, setPageNumber, setPageSize }) => {
@@ -18,21 +18,21 @@ const Card: FC<TCardProps> = ({ page, setPageNumber, setPageSize }) => {
   // lastPage: boolean;
 
   const handlePrev = useCallback(() => {
-    setPageNumber((prevCount: number) => {
-      if (prevCount > 1) {
+    setPageNumber((prevCount?: number) => {
+      if (prevCount && prevCount > 1) {
         return prevCount - 1;
       }
     });
   }, [setPageNumber]);
   const handleNext = useCallback(() => {
-    setPageNumber((prevCount: number) => {
+    setPageNumber((prevCount?: number) => {
       if (!prevCount) {
         return 1;
       }
       return prevCount + 1;
     });
   }, [setPageNumber]);
-  const handlePageSize = (e) => {
+  const handlePageSize = (e: ChangeEvent<HTMLSelectElement>) => {
     setPageNumber(0);
     setPageSize(Number(e.target.value));
   };

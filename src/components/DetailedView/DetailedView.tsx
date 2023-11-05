@@ -5,7 +5,7 @@ import Loader from '../Loader';
 import IWriter from '../../interfaces/IWriter';
 
 type IDetailedViewProps = {
-  detailedInfo: IEpisodeDetailed;
+  detailedInfo: IEpisodeDetailed | null;
 };
 
 const DetailedView: FC<IDetailedViewProps> = ({

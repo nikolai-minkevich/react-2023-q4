@@ -2,7 +2,7 @@ import ISeason from './ISeason';
 import ISeries from './ISeries';
 import IWriter from './IWriter';
 
-interface IEpisode {
+interface IEpisodeDetailed {
   uid: string;
   title: string | null;
   series: ISeries | null;
@@ -15,4 +15,4 @@ interface IEpisode {
   writers: IWriter[];
 }
 
-export default IEpisode;
+export default IEpisodeDetailed;

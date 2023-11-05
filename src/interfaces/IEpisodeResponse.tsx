@@ -1,7 +1,7 @@
-import IEpisode from './IEpisode';
+import IEpisodeDetailed from './IEpisodeDetailed';
 
 interface IEpisodeResponse {
-  episode: IEpisode;
+  episode: IEpisodeDetailed;
 }
 
 export default IEpisodeResponse;

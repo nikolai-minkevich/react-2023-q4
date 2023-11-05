@@ -10,13 +10,17 @@ import { useNavigate } from 'react-router-dom';
 
 type TSearchState = string;
 
+const DEFAULT_PAGE_SIZE = 5;
+
 const Page: FC = (): React.JSX.Element => {
   const defaultTerm = localStorage.getItem('term') ?? '';
   const [term, setTerm] = useState<TSearchState>(defaultTerm);
   const [cards, setCards] = useState<IEpisode[] | null>(null);
   const [page, setPage] = useState<IPage | null>(null);
   const [pageNumber, setPageNumber] = useState<number | undefined>();
-  const [pageSize, setPageSize] = useState<number | undefined>();
+  const [pageSize, setPageSize] = useState<number | undefined>(
+    DEFAULT_PAGE_SIZE
+  );
 
   const navigate = useNavigate();
 
@@ -38,7 +42,7 @@ const Page: FC = (): React.JSX.Element => {
       url += `pageNumber=${pageNumber}&`;
     }
     if (pageSize) {
-      url += `pageNumber=${pageSize}&`;
+      url += `pageSize=${pageSize}&`;
     }
     navigate(url);
   }, [navigate, pageNumber, pageSize]);

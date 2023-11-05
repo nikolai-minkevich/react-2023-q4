@@ -24,8 +24,6 @@ async function getEpisodes({
     url += `pageSize=${pageSize}&`;
   }
 
-  console.log('url', url);
-
   let body = null;
   if (term) {
     body = new URLSearchParams({ title: term, name: term }).toString();

@@ -12,7 +12,7 @@ type IDetailedViewProps = {
 const DetailedView: FC<IDetailedViewProps> = ({
   detailedInfo,
   setSelectedCard,
-}): React.JSX.Element => {
+}: IDetailedViewProps): React.JSX.Element => {
   const handleClose = () => {
     setSelectedCard(undefined);
   };

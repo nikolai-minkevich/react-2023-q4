@@ -8,7 +8,11 @@ type TCardProps = {
   setSelectedCard: (uid: string) => void;
 };
 
-const Card: FC<TCardProps> = ({ card, isSelected, setSelectedCard }) => {
+const Card: FC<TCardProps> = ({
+  card,
+  isSelected,
+  setSelectedCard,
+}: TCardProps) => {
   const handleSelect = () => {
     setSelectedCard(card.uid);
   };

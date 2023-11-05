@@ -8,7 +8,11 @@ type TCardProps = {
   setPageSize: Dispatch<SetStateAction<number | undefined>>;
 };
 
-const Card: FC<TCardProps> = ({ page, setPageNumber, setPageSize }) => {
+const Card: FC<TCardProps> = ({
+  page,
+  setPageNumber,
+  setPageSize,
+}: TCardProps) => {
   const handlePrev = useCallback(() => {
     setPageNumber((prevCount?: number) => {
       if (prevCount && prevCount > 1) {

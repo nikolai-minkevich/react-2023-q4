@@ -9,7 +9,7 @@ type TSearchProps = {
 const Search: FC<TSearchProps> = ({
   placeholder,
   setTerm,
-}): React.JSX.Element => {
+}: TSearchProps): React.JSX.Element => {
   const defaultInputValue = localStorage.getItem('term') ?? '';
   const [inputValue, setInputValue] = useState<string>(defaultInputValue);
 

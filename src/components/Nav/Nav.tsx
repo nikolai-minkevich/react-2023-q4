@@ -8,7 +8,9 @@ type TNavbarProps = {
   setTerm: (term: string) => void;
 };
 
-const Navbar: FC<TNavbarProps> = ({ setTerm }): React.JSX.Element => (
+const Navbar: FC<TNavbarProps> = ({
+  setTerm,
+}: TNavbarProps): React.JSX.Element => (
   <>
     <div className="nav">
       <div className="nav__logo">

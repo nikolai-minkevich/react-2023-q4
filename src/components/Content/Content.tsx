@@ -33,7 +33,7 @@ const Content: FC<TContentProps> = ({
   setPageSize,
   selectedCard,
   setSelectedCard,
-}): React.JSX.Element => {
+}: TContentProps): React.JSX.Element => {
   const [detailedInfo, setDetailedInfo] = useState<IEpisodeDetailed | null>(
     null
   );

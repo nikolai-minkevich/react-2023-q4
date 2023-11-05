@@ -9,14 +9,6 @@ type TCardProps = {
 };
 
 const Card: FC<TCardProps> = ({ page, setPageNumber, setPageSize }) => {
-  // pageNumber: number;
-  // pageSize: number;
-  // numberOfElements: number;
-  // totalElements: number;
-  // totalPages: number;
-  // firstPage: boolean;
-  // lastPage: boolean;
-
   const handlePrev = useCallback(() => {
     setPageNumber((prevCount?: number) => {
       if (prevCount && prevCount > 1) {

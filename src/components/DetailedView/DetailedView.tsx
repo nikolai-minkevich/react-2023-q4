@@ -1,4 +1,4 @@
-import { FC, Key } from 'react';
+import { Dispatch, FC, Key, SetStateAction } from 'react';
 import './DetailedView.css';
 import IEpisodeDetailed from '../../interfaces/IEpisodeDetailed';
 import Loader from '../Loader';
@@ -6,11 +6,17 @@ import IWriter from '../../interfaces/IWriter';
 
 type IDetailedViewProps = {
   detailedInfo: IEpisodeDetailed | null;
+  setSelectedCard: Dispatch<SetStateAction<string | undefined>>;
 };
 
 const DetailedView: FC<IDetailedViewProps> = ({
   detailedInfo,
+  setSelectedCard,
 }): React.JSX.Element => {
+  const handleClose = () => {
+    setSelectedCard(undefined);
+  };
+
   if (!detailedInfo) {
     return (
       <>
@@ -20,6 +26,9 @@ const DetailedView: FC<IDetailedViewProps> = ({
   }
   return (
     <>
+      <div className="close-button" onClick={handleClose}>
+        ❌
+      </div>
       <div className="detailed-view">
         <div>
           <h2>{detailedInfo.title}</h2>

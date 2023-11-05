@@ -68,23 +68,30 @@ const Content: FC<TContentProps> = ({
 
   return (
     <>
-      <Pagination
-        page={page}
-        setPageNumber={setPageNumber}
-        setPageSize={setPageSize}
-      ></Pagination>
-      <div className="content">
-        <div className="cards">
-          {cards.map((card: IEpisode, index: Key) => (
-            <Card
-              card={card}
-              key={index}
-              isSelected={card.uid === selectedCard ? true : false}
+      <div>
+        <Pagination
+          page={page}
+          setPageNumber={setPageNumber}
+          setPageSize={setPageSize}
+        ></Pagination>
+        <div className="content">
+          <div className="cards">
+            {cards.map((card: IEpisode, index: Key) => (
+              <Card
+                card={card}
+                key={index}
+                isSelected={card.uid === selectedCard ? true : false}
+                setSelectedCard={setSelectedCard}
+              ></Card>
+            ))}
+          </div>
+          {selectedCard && (
+            <DetailedView
+              detailedInfo={detailedInfo}
               setSelectedCard={setSelectedCard}
-            ></Card>
-          ))}
+            />
+          )}
         </div>
-        {selectedCard && <DetailedView detailedInfo={detailedInfo} />}
       </div>
     </>
   );

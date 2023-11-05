@@ -1,3 +1,4 @@
+import IEpisodeResponse from '../interfaces/IEpisodeResponse';
 import IEpisodesResponse from '../interfaces/IEpisodesResponse';
 
 const ROOT = 'https://stapi.co/api/v1/rest';
@@ -8,7 +9,27 @@ interface IGetEpisodesProps {
   pageSize?: number;
 }
 
-async function getEpisodes({
+interface IGetEpisodeProps {
+  uid: string;
+}
+
+export async function getEpisode({
+  uid,
+}: IGetEpisodeProps): Promise<IEpisodeResponse> {
+  const url = `${ROOT}/episode?uid=${uid}`;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => response);
+
+  return response || {};
+}
+
+export async function getEpisodes({
   term,
   pageNumber,
   pageSize,
@@ -41,5 +62,3 @@ async function getEpisodes({
 
   return response || {};
 }
-
-export default getEpisodes;

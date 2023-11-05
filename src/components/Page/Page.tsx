@@ -1,5 +1,5 @@
 import { FC, useEffect, useState, useCallback } from 'react';
-import getEpisodes from '../../services/stapi';
+import { getEpisodes } from '../../services/stapi';
 import Nav from '../Nav';
 import Content from '../Content';
 import ErrorBoundary from '../ErrorBoundary';
@@ -21,6 +21,7 @@ const Page: FC = (): React.JSX.Element => {
   const [pageSize, setPageSize] = useState<number | undefined>(
     DEFAULT_PAGE_SIZE
   );
+  const [selectedCard, setSelectedCard] = useState<string | undefined>();
 
   const navigate = useNavigate();
 
@@ -65,7 +66,9 @@ const Page: FC = (): React.JSX.Element => {
             page={page}
             setPageNumber={setPageNumber}
             setPageSize={setPageSize}
-          ></Content>
+            selectedCard={selectedCard}
+            setSelectedCard={setSelectedCard}
+          />
         </div>
       </ErrorBoundary>
     </>

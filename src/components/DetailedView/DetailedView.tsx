@@ -35,12 +35,16 @@ const DetailedView: FC<IDetailedViewProps> = ({
         <div>
           <h2>{detailedInfo.title}</h2>
         </div>
-        <div>{detailedInfo.series?.title}</div>
+        <div>
+          Series: <strong>{detailedInfo.series?.title}</strong>
+        </div>
         {detailedInfo.yearFrom && detailedInfo.yearTo && (
           <>
             <div>
-              Years in Star Trek cinematic universe: {detailedInfo.yearFrom}-
-              {detailedInfo.yearTo}
+              Years in Star Trek cinematic universe:{' '}
+              <strong>
+                {detailedInfo.yearFrom}-{detailedInfo.yearTo}
+              </strong>
             </div>
           </>
         )}
@@ -48,7 +52,10 @@ const DetailedView: FC<IDetailedViewProps> = ({
         {detailedInfo.seasonNumber && detailedInfo.episodeNumber && (
           <>
             <div>
-              S{detailedInfo.seasonNumber}E{detailedInfo.episodeNumber}
+              Code:{' '}
+              <strong>
+                S{detailedInfo.seasonNumber}E{detailedInfo.episodeNumber}
+              </strong>
             </div>
           </>
         )}
@@ -60,7 +67,9 @@ const DetailedView: FC<IDetailedViewProps> = ({
               return (
                 <ul key={index}>
                   <li>
-                    <div>{writer.name}</div>
+                    <div>
+                      <strong>{writer.name}</strong>
+                    </div>
                     {writer.dateOfBirth && writer.placeOfBirth && (
                       <>
                         <div>

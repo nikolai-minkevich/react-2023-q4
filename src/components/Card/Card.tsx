@@ -1,21 +1,19 @@
 import { FC } from 'react';
 import './Card.css';
 import IEpisode from '../../interfaces/IEpisode';
+import { usePageStateContext } from '../../contexts/PageStateContext';
 
 type TCardProps = {
   card: IEpisode;
-  isSelected: boolean;
-  setSelectedCard: (uid: string) => void;
 };
 
-const Card: FC<TCardProps> = ({
-  card,
-  isSelected,
-  setSelectedCard,
-}: TCardProps) => {
+const Card: FC<TCardProps> = ({ card }: TCardProps) => {
+  const { selectedCard, setSelectedCard } = usePageStateContext();
   const handleSelect = () => {
     setSelectedCard(card.uid);
   };
+  const isSelected = card.uid === selectedCard;
+
   return (
     <div
       className={`card ${isSelected && 'card_selected'}`}

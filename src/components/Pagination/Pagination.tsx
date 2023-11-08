@@ -1,18 +1,14 @@
-import { FC, useCallback, Dispatch, SetStateAction, ChangeEvent } from 'react';
+import { FC, useCallback, ChangeEvent } from 'react';
 import './Pagination.css';
 import IPage from '../../interfaces/IPage';
+import { usePageStateContext } from '../../contexts/PageStateContext';
 
 type TCardProps = {
   page: IPage;
-  setPageNumber: Dispatch<SetStateAction<number | undefined>>;
-  setPageSize: Dispatch<SetStateAction<number | undefined>>;
 };
 
-const Card: FC<TCardProps> = ({
-  page,
-  setPageNumber,
-  setPageSize,
-}: TCardProps) => {
+const Card: FC<TCardProps> = ({ page }: TCardProps) => {
+  const { setPageNumber, setPageSize } = usePageStateContext();
   const handlePrev = useCallback(() => {
     setPageNumber((prevCount?: number) => {
       if (prevCount && prevCount > 1) {

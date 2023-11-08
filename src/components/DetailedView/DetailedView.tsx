@@ -1,18 +1,14 @@
-import { Dispatch, FC, Key, SetStateAction } from 'react';
+import { FC, Key } from 'react';
 import './DetailedView.css';
-import IEpisodeDetailed from '../../interfaces/IEpisodeDetailed';
 import Loader from '../Loader';
 import IWriter from '../../interfaces/IWriter';
+import { usePageStateContext } from '../../contexts/usePageStateContext';
+import { useEpisodeResponseContext } from '../../contexts/useEpisodeResponseContext';
 
-type IDetailedViewProps = {
-  detailedInfo: IEpisodeDetailed | null;
-  setSelectedCard: Dispatch<SetStateAction<string | undefined>>;
-};
+const DetailedView: FC = () => {
+  const { setSelectedCard } = usePageStateContext();
+  const { detailedInfo } = useEpisodeResponseContext();
 
-const DetailedView: FC<IDetailedViewProps> = ({
-  detailedInfo,
-  setSelectedCard,
-}: IDetailedViewProps): React.JSX.Element => {
   const handleClose = () => {
     setSelectedCard(undefined);
   };

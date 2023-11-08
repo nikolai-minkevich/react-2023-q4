@@ -1,15 +1,9 @@
 import { FC, ChangeEvent, useState } from 'react';
 import './Search.css';
+import { usePageStateContext } from '../../contexts/PageStateContext';
 
-type TSearchProps = {
-  placeholder: string;
-  setTerm: (term: string) => void;
-};
-
-const Search: FC<TSearchProps> = ({
-  placeholder,
-  setTerm,
-}: TSearchProps): React.JSX.Element => {
+const Search: FC = () => {
+  const { setTerm } = usePageStateContext();
   const defaultInputValue = localStorage.getItem('term') ?? '';
   const [inputValue, setInputValue] = useState<string>(defaultInputValue);
 
@@ -28,7 +22,7 @@ const Search: FC<TSearchProps> = ({
         className="search__input"
         type="text"
         defaultValue={inputValue}
-        placeholder={placeholder}
+        placeholder="Search by title"
         onChange={changeInput}
       />
       <button className="search__button" onClick={handleSearch}>

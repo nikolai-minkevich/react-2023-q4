@@ -1,6 +1,6 @@
 import { FC, ChangeEvent, useState } from 'react';
 import './Search.css';
-import { usePageStateContext } from '../../contexts/PageStateContext';
+import { usePageStateContext } from '../../contexts/usePageStateContext';
 
 const Search: FC = () => {
   const { setTerm } = usePageStateContext();

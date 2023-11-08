@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './Card.css';
 import IEpisode from '../../interfaces/IEpisode';
-import { usePageStateContext } from '../../contexts/PageStateContext';
+import { usePageStateContext } from '../../contexts/usePageStateContext';
 
 type TCardProps = {
   card: IEpisode;

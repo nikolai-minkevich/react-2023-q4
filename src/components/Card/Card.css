@@ -40,3 +40,7 @@
 .card_selected:hover {
   background-color: rgb(162, 82, 24);
 }
+
+.h3 {
+  font-size: small;
+}

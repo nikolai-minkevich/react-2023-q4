@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './Card.css';
 import IEpisode from '../../interfaces/IEpisode';
-import { usePageStateContext } from '../../contexts/usePageStateContext';
+import { usePageStateContext } from '../../hooks/usePageStateContext';
 
 type TCardProps = {
   card: IEpisode;
@@ -20,8 +20,12 @@ const Card: FC<TCardProps> = ({ card }: TCardProps) => {
       onClick={handleSelect}
     >
       <div className="card__section-about">
-        <div className="card__name">{card.title}</div>
-        <div className="card__description">{card.usAirDate}</div>
+        <div className="card__name">
+          <h3>{card.title}</h3>
+        </div>
+        <div className="card__description" aria-label="us air date">
+          {card.usAirDate}
+        </div>
       </div>
     </div>
   );

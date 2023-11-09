@@ -4,9 +4,9 @@ import Content from '../Content';
 import ErrorBoundary from '../ErrorBoundary';
 import './Page.css';
 import { useNavigate } from 'react-router-dom';
-import { usePageStateContext } from '../../contexts/usePageStateContext';
-import { useEpisodesResponseContext } from '../../contexts/useEpisodesResponseContext';
-import { useEpisodeResponseContext } from '../../contexts/useEpisodeResponseContext';
+import { usePageStateContext } from '../../hooks/usePageStateContext';
+import { useEpisodesResponseContext } from '../../hooks/useEpisodesResponseContext';
+import { useEpisodeResponseContext } from '../../hooks/useEpisodeResponseContext';
 
 // Fix me: тип  TSearchState нужно перенести в контекст где будут храниться term
 

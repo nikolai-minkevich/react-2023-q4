@@ -1,7 +1,7 @@
 import { FC, useCallback, ChangeEvent } from 'react';
 import './Pagination.css';
 import IPage from '../../interfaces/IPage';
-import { usePageStateContext } from '../../contexts/usePageStateContext';
+import { usePageStateContext } from '../../hooks/usePageStateContext';
 
 type TCardProps = {
   page: IPage;

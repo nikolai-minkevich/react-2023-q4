@@ -1,6 +1,6 @@
 import { PropsWithChildren, createContext, useState, useCallback } from 'react';
 import { getEpisode } from '../services/stapi';
-import { usePageStateContext } from './usePageStateContext';
+import { usePageStateContext } from '../hooks/usePageStateContext';
 import IEpisodeDetailed from '../interfaces/IEpisodeDetailed';
 import IEpisodeResponseContextValue from '../interfaces/IEpisodeResponseContextValue';
 

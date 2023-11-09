@@ -2,8 +2,8 @@ import { FC, Key } from 'react';
 import './DetailedView.css';
 import Loader from '../Loader';
 import IWriter from '../../interfaces/IWriter';
-import { usePageStateContext } from '../../contexts/usePageStateContext';
-import { useEpisodeResponseContext } from '../../contexts/useEpisodeResponseContext';
+import { usePageStateContext } from '../../hooks/usePageStateContext';
+import { useEpisodeResponseContext } from '../../hooks/useEpisodeResponseContext';
 
 const DetailedView: FC = () => {
   const { setSelectedCard } = usePageStateContext();

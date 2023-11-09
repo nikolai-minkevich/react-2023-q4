@@ -2,7 +2,7 @@ import { PropsWithChildren, createContext, useState, useCallback } from 'react';
 import { getEpisodes } from '../services/stapi';
 import IEpisode from '../interfaces/IEpisode';
 import IPage from '../interfaces/IPage';
-import { usePageStateContext } from './usePageStateContext';
+import { usePageStateContext } from '../hooks/usePageStateContext';
 import { IEpisodesResponseContextValue } from '../interfaces/IEpisodesResponseContextValue';
 
 export const EpisodesResponseContext =

@@ -18,6 +18,7 @@ const Card: FC<TCardProps> = ({ card }: TCardProps) => {
     <div
       className={`card ${isSelected && 'card_selected'}`}
       onClick={handleSelect}
+      aria-label="card"
     >
       <div className="card__section-about">
         <div className="card__name">

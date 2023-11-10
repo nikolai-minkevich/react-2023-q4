@@ -3,6 +3,7 @@
  */
 
 import { render, screen } from '@testing-library/react';
+// import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom';
 import Content from '../components/Content';
 import { cards } from '../fixtures/Cards';
@@ -27,5 +28,4 @@ describe('Content', () => {
     );
     expect(noDataText).toBeInTheDocument();
   });
-  test.todo('clicking on a card opens a detailed card component');
 });

@@ -23,27 +23,27 @@
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">41.66% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">5/12</span>
+            <span class="fraction">12/12</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">0/2</span>
+            <span class="fraction">2/2</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">0% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">0/1</span>
+            <span class="fraction">1/1</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">36.36% </span>
+            <span class="strong">100% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">4/11</span>
+            <span class="fraction">11/11</span>
           </div>
         </div>
         <p class="quiet">
@@ -57,7 +57,7 @@
           </div>
         </template>
       </div>
-      <div class="status-line low"></div>
+      <div class="status-line high"></div>
       <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -95,37 +95,37 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,18 +140,18 @@ export const PageStateContext = createContext&lt;IPageStateContextValue&gt;(
 &nbsp;
 const DEFAULT_PAGE_SIZE = 5;
 &nbsp;
-export const PageStateProvider = <span class="fstat-no" title="function not covered" >({</span>
+export const PageStateProvider = ({
   children,
 }: PropsWithChildren): JSX.Element =&gt; {
-  const defaultTerm = <span class="cstat-no" title="statement not covered" >localStorage.getItem('term') ?? '';</span>
-  const [term, setTerm] = <span class="cstat-no" title="statement not covered" >useState&lt;TSearchState&gt;(defaultTerm);</span>
-  const [pageNumber, setPageNumber] = <span class="cstat-no" title="statement not covered" >useState&lt;number | undefined&gt;();</span>
-  const [pageSize, setPageSize] = <span class="cstat-no" title="statement not covered" >useState&lt;number | undefined&gt;(</span>
+  const defaultTerm = localStorage.getItem('term') ?? '';
+  const [term, setTerm] = useState&lt;TSearchState&gt;(defaultTerm);
+  const [pageNumber, setPageNumber] = useState&lt;number | undefined&gt;();
+  const [pageSize, setPageSize] = useState&lt;number | undefined&gt;(
     DEFAULT_PAGE_SIZE
   );
-  const [selectedCard, setSelectedCard] = <span class="cstat-no" title="statement not covered" >useState&lt;string | undefined&gt;();</span>
+  const [selectedCard, setSelectedCard] = useState&lt;string | undefined&gt;();
 &nbsp;
-  const contextValue = <span class="cstat-no" title="statement not covered" >{</span>
+  const contextValue = {
     term,
     setTerm,
     pageNumber,
@@ -161,7 +161,7 @@ export const PageStateProvider = <span class="fstat-no" title="function not cove
     pageSize,
     setPageSize,
   };
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;PageStateContext.Provider value={contextValue}&gt;
       {children}
     &lt;/PageStateContext.Provider&gt;
@@ -181,7 +181,7 @@ export const PageStateProvider = <span class="fstat-no" title="function not cove
         rel="noopener noreferrer"
         >istanbul</a
       >
-      at 2023-11-09T22:00:45.564Z
+      at 2023-11-09T23:55:53.390Z
     </div>
     <script src="../prettify.js"></script>
     <script>

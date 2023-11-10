@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Code coverage report for components/Card/Card.tsx</title>
+    <title>
+      Code coverage report for components/ErrorBoundary/ErrorBoundary.tsx
+    </title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,31 +21,31 @@
       <div class="pad1">
         <h1>
           <a href="../../index.html">All files</a> /
-          <a href="index.html">components/Card</a> Card.tsx
+          <a href="index.html">components/ErrorBoundary</a> ErrorBoundary.tsx
         </h1>
         <div class="clearfix">
           <div class="fl pad1y space-right2">
-            <span class="strong">100% </span>
+            <span class="strong">66.66% </span>
             <span class="quiet">Statements</span>
-            <span class="fraction">9/9</span>
+            <span class="fraction">6/9</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">100% </span>
+            <span class="strong">0% </span>
             <span class="quiet">Branches</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">0/1</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">100% </span>
+            <span class="strong">50% </span>
             <span class="quiet">Functions</span>
-            <span class="fraction">2/2</span>
+            <span class="fraction">2/4</span>
           </div>
 
           <div class="fl pad1y space-right2">
-            <span class="strong">100% </span>
+            <span class="strong">66.66% </span>
             <span class="quiet">Lines</span>
-            <span class="fraction">9/9</span>
+            <span class="fraction">6/9</span>
           </div>
         </div>
         <p class="quiet">
@@ -57,7 +59,7 @@
           </div>
         </template>
       </div>
-      <div class="status-line high"></div>
+      <div class="status-line medium"></div>
       <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,76 +96,79 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { FC } from 'react';
-import './Card.css';
-import IEpisode from '../../interfaces/IEpisode';
-import { usePageStateContext } from '../../hooks/usePageStateContext';
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { PropsWithChildren, ReactElement } from 'react';
 &nbsp;
-type TCardProps = {
-  card: IEpisode;
+type ErrorBoundaryProps = {
+  fallback: ReactElement;
+  children: ReactElement | PropsWithChildren | PropsWithChildren[];
 };
 &nbsp;
-const Card: FC&lt;TCardProps&gt; = ({ card }: TCardProps) =&gt; {
-  const { selectedCard, setSelectedCard } = usePageStateContext();
-  const handleSelect = () =&gt; {
-    setSelectedCard(card.uid);
-  };
-  const isSelected = card.uid === selectedCard;
+type ErrorBoundaryState = { hasError: boolean };
 &nbsp;
-  return (
-    &lt;div
-      className={`card ${isSelected &amp;&amp; 'card_selected'}`}
-      onClick={handleSelect}
-      aria-label='card'
-    &gt;
-      &lt;div className="card__section-about"&gt;
-        &lt;div className="card__name"&gt;
-          &lt;h3&gt;{card.title}&lt;/h3&gt;
-        &lt;/div&gt;
-        &lt;div className="card__description" aria-label="us air date"&gt;
-          {card.usAirDate}
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  );
-};
+class ErrorBoundary extends React.Component&lt;
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+&gt; {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
 &nbsp;
-export default Card;
+<span class="fstat-no" title="function not covered" >  static </span>getDerivedStateFromError(): ErrorBoundaryState {
+<span class="cstat-no" title="statement not covered" >    return { hasError: true };</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  componentDidCatch(</span>error: Error, errorInfo: React.ErrorInfo): void {
+<span class="cstat-no" title="statement not covered" >    console.log(error, errorInfo.componentStack);</span>
+  }
+&nbsp;
+  render(): React.ReactNode {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.state.hasError) {
+<span class="cstat-no" title="statement not covered" >      return &lt;&gt;{this.props.fallback}&lt;/&gt;;</span>
+    }
+&nbsp;
+    return &lt;&gt;{this.props.children}&lt;/&gt;;
+  }
+}
+&nbsp;
+export default ErrorBoundary;
 &nbsp;</pre></td></tr></table></pre>
 
       <div class="push"></div>

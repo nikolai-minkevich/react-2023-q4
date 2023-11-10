@@ -17,6 +17,7 @@ export async function getEpisode({
   uid,
 }: IGetEpisodeProps): Promise<IEpisodeResponse> {
   const url = `${ROOT}/episode?uid=${uid}`;
+  // `${ROOT}/episode?uid=${uid}`;
   const response = await fetch(url, {
     method: 'GET',
     headers: {

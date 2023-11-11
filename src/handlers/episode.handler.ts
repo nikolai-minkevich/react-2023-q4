@@ -3,9 +3,10 @@
  */
 
 import { EpisodeResponse } from '../fixtures/EpisodeResponse';
-import { http, HttpResponse } from 'msw';
+import { http, delay, HttpResponse } from 'msw';
 const URL = 'https://stapi.co/api/v1/rest/episode';
 
-export const basic = http.get(URL, () => {
+export const basic = http.get(URL, async () => {
+  await delay(100);
   return HttpResponse.json(EpisodeResponse);
 });

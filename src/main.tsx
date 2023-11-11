@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { PageStateProvider } from './contexts/PageStateContext';
 import { EpisodesResponseProvider } from './contexts/EpisodesResponseContext';
 import { EpisodeResponseProvider } from './contexts/EpisodeResponseContext';
+import NotFound from './components/NotFound';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
         </EpisodesResponseProvider>
       </PageStateProvider>
     ),
+    errorElement: <NotFound />,
   },
 ]);
 

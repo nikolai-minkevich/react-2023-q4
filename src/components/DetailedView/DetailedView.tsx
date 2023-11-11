@@ -16,15 +16,19 @@ const DetailedView: FC = () => {
   if (!detailedInfo) {
     return (
       <>
-        <div className="detailed-view">
+        <div className="detailed-view" aria-label="detailed card loader">
           <Loader />
         </div>
       </>
     );
   }
   return (
-    <>
-      <div className="close-button" onClick={handleClose}>
+    <div aria-label="detailed card">
+      <div
+        className="close-button"
+        onClick={handleClose}
+        aria-label="close button"
+      >
         ❌
       </div>
       <div className="detailed-view">
@@ -80,7 +84,7 @@ const DetailedView: FC = () => {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -8,7 +8,7 @@ import Card from '../components/Card';
 import { card } from '../fixtures/Card';
 
 describe('Card', () => {
-  test('renders the relevant card data', async () => {
+  test('Ensure that the card component renders the relevant card data', async () => {
     render(<Card card={card} />);
 
     await screen.findByRole('heading');

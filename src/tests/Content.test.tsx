@@ -9,13 +9,13 @@ import Content from '../components/Content';
 import { cards } from '../fixtures/Cards';
 import { page } from '../fixtures/Page';
 
-describe('Content', () => {
-  test('render', async () => {
+describe('Card List component', () => {
+  test('Verify that the component renders the specified number of cards', async () => {
     render(<Content cards={cards} page={page} />);
     const headings = await screen.findAllByRole('heading');
     expect(headings).toHaveLength(2);
   });
-  test('loader', async () => {
+  test('Check that an appropriate message is displayed if no cards are present', async () => {
     render(<Content cards={null} page={null} />);
     const loader = await screen.findByLabelText('loader');
     expect(loader).toBeInTheDocument();

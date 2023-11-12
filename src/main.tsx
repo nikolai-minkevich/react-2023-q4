@@ -7,6 +7,22 @@ import { EpisodesResponseProvider } from './contexts/EpisodesResponseContext';
 import { EpisodeResponseProvider } from './contexts/EpisodeResponseContext';
 import NotFound from './components/NotFound';
 
+export const routerConfig = [
+  {
+    path: '/',
+    element: (
+      <PageStateProvider>
+        <EpisodesResponseProvider>
+          <EpisodeResponseProvider>
+            <Page />
+          </EpisodeResponseProvider>
+        </EpisodesResponseProvider>
+      </PageStateProvider>
+    ),
+    errorElement: <NotFound />,
+  },
+];
+
 const router = createBrowserRouter([
   {
     path: '/',

@@ -14,6 +14,7 @@ import { PageStateProvider } from '../contexts/PageStateContext';
 import { EpisodesResponseProvider } from '../contexts/EpisodesResponseContext';
 import { EpisodeResponseProvider } from '../contexts/EpisodeResponseContext';
 import { EpisodeResponse } from '../fixtures/EpisodeResponse';
+import 'jest-location-mock';
 const server = setupServer(episodes.basic, episode.basic);
 
 beforeEach(() => server.listen());
@@ -80,8 +81,6 @@ describe('Detailed Card component', () => {
       'detailed card loader'
     );
     expect(deatiledCardLoader).toBeInTheDocument();
-
-    // TODO: add more data
     const actorName = await screen.findByText(
       EpisodeResponse.episode.writers[0].name
     );
@@ -109,16 +108,24 @@ describe('Detailed Card component', () => {
     expect(detailedCardComponent).not.toBeInTheDocument();
   });
 
+  test('Check that the component retrieves the value from the local storage upon mounting', async () => {
+    expect(localStorage.getItem('term')).not.toEqual('test');
+    localStorage.setItem('term', 'test');
+    expect(localStorage.getItem('term')).toEqual('test');
+    setup();
+    const searchInput = await screen.findByLabelText('search input');
+    expect(searchInput).toHaveValue('test');
+  });
+
   test.todo(
     'Check that clicking triggers an additional API call to fetch detailed information.'
   );
+
   test.todo(
     'Make sure the component updates URL query parameter when page changes.'
   );
+
   test.todo(
-    'Verify that clicking the Search button saves the entered value to the local storage.'
-  );
-  test.todo(
-    'Check that the component retrieves the value from the local storage upon mounting.'
+    'Ensure that the 404 page is displayed when navigating to an invalid routu'
   );
 });

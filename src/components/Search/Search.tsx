@@ -24,8 +24,13 @@ const Search: FC = () => {
         defaultValue={inputValue}
         placeholder="Search by title"
         onChange={changeInput}
+        aria-label="search input"
       />
-      <button className="search__button" onClick={handleSearch}>
+      <button
+        className="search__button"
+        onClick={handleSearch}
+        aria-label="search button"
+      >
         Search
       </button>
     </div>

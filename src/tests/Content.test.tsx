@@ -3,7 +3,6 @@
  */
 
 import { render, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom';
 import Content from '../components/Content';
 import { cards } from '../fixtures/Cards';
@@ -21,11 +20,11 @@ describe('Card List', () => {
     expect(loader).toBeInTheDocument();
   });
 
-  // test('no data', async () => {
-  //   render(<Content cards={[]} page={page} />);
-  //   const noDataText = await screen.findByText(
-  //     'No data found for this search query'
-  //   );
-  //   expect(noDataText).toBeInTheDocument();
-  // });
+  test('no data', async () => {
+    render(<Content cards={[]} page={page} />);
+    const noDataText = await screen.findByText(
+      'No data found for this search query'
+    );
+    expect(noDataText).toBeInTheDocument();
+  });
 });

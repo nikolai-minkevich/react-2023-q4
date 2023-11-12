@@ -31,11 +31,19 @@ const Card: FC<TCardProps> = ({ page }: TCardProps) => {
 
   if (page) {
     return (
-      <div className="pagination">
-        <button onClick={handlePrev} disabled={page.firstPage}>
+      <div className="pagination" aria-label="pagination">
+        <button
+          onClick={handlePrev}
+          disabled={page.firstPage}
+          aria-label="previous page"
+        >
           Prev.
         </button>
-        <button onClick={handleNext} disabled={page.lastPage}>
+        <button
+          onClick={handleNext}
+          disabled={page.lastPage}
+          aria-label="next page"
+        >
           Next.
         </button>
         Page {page.pageNumber + 1} of {page.totalPages}. Show

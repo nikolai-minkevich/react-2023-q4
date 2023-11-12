@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1699807691859" clover="3.2.0">
-  <project timestamp="1699807691859" name="All files">
-    <metrics statements="226" coveredstatements="211" conditionals="43" coveredconditionals="33" methods="45" coveredmethods="37" elements="314" coveredelements="281" complexity="0" loc="226" ncloc="226" packages="16" files="25" classes="25"/>
+<coverage generated="1699821936299" clover="3.2.0">
+  <project timestamp="1699821936299" name="All files">
+    <metrics statements="231" coveredstatements="222" conditionals="43" coveredconditionals="36" methods="46" coveredmethods="40" elements="320" coveredelements="298" complexity="0" loc="231" ncloc="231" packages="17" files="26" classes="26"/>
     <package name="components.Card">
       <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="Card.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/components/Card/Card.tsx">
@@ -9,11 +9,11 @@
         <line num="2" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
-        <line num="11" count="88" type="stmt"/>
-        <line num="12" count="88" type="stmt"/>
+        <line num="11" count="113" type="stmt"/>
+        <line num="12" count="113" type="stmt"/>
         <line num="13" count="4" type="stmt"/>
-        <line num="15" count="88" type="stmt"/>
-        <line num="17" count="88" type="stmt"/>
+        <line num="15" count="113" type="stmt"/>
+        <line num="17" count="113" type="stmt"/>
         <line num="35" count="3" type="stmt"/>
       </file>
     </package>
@@ -27,12 +27,12 @@
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="21" count="30" type="cond" truecount="3" falsecount="0"/>
-        <line num="22" count="11" type="stmt"/>
-        <line num="31" count="19" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="39" type="cond" truecount="3" falsecount="0"/>
+        <line num="22" count="15" type="stmt"/>
+        <line num="31" count="24" type="cond" truecount="1" falsecount="0"/>
         <line num="32" count="1" type="stmt"/>
-        <line num="35" count="18" type="stmt"/>
-        <line num="42" count="87" type="stmt"/>
+        <line num="35" count="23" type="stmt"/>
+        <line num="42" count="112" type="stmt"/>
         <line num="52" count="2" type="stmt"/>
       </file>
     </package>
@@ -61,13 +61,13 @@
       <file name="ErrorBoundary.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/components/ErrorBoundary/ErrorBoundary.tsx">
         <metrics statements="9" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="16" count="5" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="28" count="27" type="cond" truecount="0" falsecount="1"/>
+        <line num="28" count="36" type="cond" truecount="0" falsecount="1"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="32" count="27" type="stmt"/>
+        <line num="32" count="36" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
       </file>
     </package>
@@ -77,7 +77,7 @@
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="19" type="stmt"/>
+        <line num="5" count="23" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
       </file>
     </package>
@@ -87,7 +87,7 @@
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="5" count="28" type="stmt"/>
+        <line num="5" count="37" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
       </file>
     </package>
@@ -100,14 +100,25 @@
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="28" type="stmt"/>
+        <line num="8" count="37" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
       </file>
     </package>
+    <package name="components.NotFound">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="NotFound.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/components/NotFound/NotFound.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="components.Page">
-      <metrics statements="30" coveredstatements="29" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+      <metrics statements="30" coveredstatements="30" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <file name="Page.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/components/Page/Page.tsx">
-        <metrics statements="30" coveredstatements="29" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="4"/>
+        <metrics statements="30" coveredstatements="30" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -118,51 +129,51 @@
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="16" count="27" type="stmt"/>
-        <line num="17" count="27" type="stmt"/>
-        <line num="18" count="27" type="stmt"/>
-        <line num="20" count="27" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="24" count="27" type="stmt"/>
-        <line num="25" count="10" type="stmt"/>
-        <line num="26" count="10" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="29" count="10" type="cond" truecount="1" falsecount="0"/>
-        <line num="30" count="10" type="stmt"/>
-        <line num="32" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="36" type="stmt"/>
+        <line num="17" count="36" type="stmt"/>
+        <line num="18" count="36" type="stmt"/>
+        <line num="20" count="36" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="24" count="36" type="stmt"/>
+        <line num="25" count="13" type="stmt"/>
+        <line num="26" count="13" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="29" count="13" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="13" type="stmt"/>
+        <line num="32" count="13" type="cond" truecount="1" falsecount="0"/>
         <line num="33" count="4" type="stmt"/>
-        <line num="35" count="10" type="stmt"/>
-        <line num="38" count="27" type="stmt"/>
-        <line num="40" count="27" type="stmt"/>
-        <line num="41" count="10" type="cond" truecount="1" falsecount="0"/>
+        <line num="35" count="13" type="stmt"/>
+        <line num="38" count="36" type="stmt"/>
+        <line num="40" count="36" type="stmt"/>
+        <line num="41" count="11" type="cond" truecount="1" falsecount="0"/>
         <line num="42" count="4" type="stmt"/>
-        <line num="46" count="27" type="stmt"/>
+        <line num="46" count="36" type="stmt"/>
         <line num="66" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.Pagination">
-      <metrics statements="20" coveredstatements="11" conditionals="5" coveredconditionals="1" methods="6" coveredmethods="1"/>
+      <metrics statements="20" coveredstatements="15" conditionals="5" coveredconditionals="2" methods="6" coveredmethods="3"/>
       <file name="Pagination.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/components/Pagination/Pagination.tsx">
-        <metrics statements="20" coveredstatements="11" conditionals="5" coveredconditionals="1" methods="6" coveredmethods="1"/>
+        <metrics statements="20" coveredstatements="15" conditionals="5" coveredconditionals="2" methods="6" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="11" count="18" type="stmt"/>
-        <line num="12" count="18" type="stmt"/>
+        <line num="11" count="23" type="stmt"/>
+        <line num="12" count="23" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="19" count="18" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="18" type="stmt"/>
+        <line num="19" count="23" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="23" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="32" count="18" type="cond" truecount="1" falsecount="0"/>
-        <line num="33" count="18" type="stmt"/>
+        <line num="32" count="23" type="cond" truecount="1" falsecount="0"/>
+        <line num="33" count="23" type="stmt"/>
         <line num="54" count="2" type="stmt"/>
       </file>
     </package>
@@ -174,16 +185,16 @@
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="6" count="33" type="stmt"/>
-        <line num="7" count="33" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="33" type="stmt"/>
-        <line num="10" count="33" type="stmt"/>
+        <line num="6" count="42" type="stmt"/>
+        <line num="7" count="42" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="42" type="stmt"/>
+        <line num="10" count="42" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
-        <line num="14" count="33" type="stmt"/>
+        <line num="14" count="42" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="19" count="33" type="stmt"/>
-        <line num="36" count="2" type="stmt"/>
+        <line num="19" count="42" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.ThrowError">
@@ -193,12 +204,12 @@
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="8" count="28" type="stmt"/>
-        <line num="10" count="28" type="stmt"/>
-        <line num="14" count="28" type="stmt"/>
-        <line num="16" count="28" type="cond" truecount="0" falsecount="1"/>
+        <line num="8" count="37" type="stmt"/>
+        <line num="10" count="37" type="stmt"/>
+        <line num="14" count="37" type="stmt"/>
+        <line num="16" count="37" type="cond" truecount="0" falsecount="1"/>
         <line num="17" count="0" type="stmt"/>
-        <line num="19" count="28" type="stmt"/>
+        <line num="19" count="37" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
       </file>
     </package>
@@ -211,15 +222,15 @@
         <line num="3" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="12" count="3" type="stmt"/>
-        <line num="15" count="19" type="stmt"/>
-        <line num="16" count="19" type="stmt"/>
-        <line num="20" count="19" type="stmt"/>
+        <line num="15" count="23" type="stmt"/>
+        <line num="16" count="23" type="stmt"/>
+        <line num="20" count="23" type="stmt"/>
         <line num="21" count="4" type="stmt"/>
         <line num="22" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="23" count="4" type="stmt"/>
         <line num="24" count="4" type="stmt"/>
-        <line num="28" count="19" type="stmt"/>
-        <line num="29" count="19" type="stmt"/>
+        <line num="28" count="23" type="stmt"/>
+        <line num="29" count="23" type="stmt"/>
       </file>
       <file name="EpisodesResponseContext.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/contexts/EpisodesResponseContext.tsx">
         <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -228,17 +239,17 @@
         <line num="5" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
-        <line num="16" count="16" type="stmt"/>
-        <line num="17" count="16" type="stmt"/>
-        <line num="18" count="16" type="stmt"/>
-        <line num="20" count="16" type="stmt"/>
-        <line num="21" count="5" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="23" count="5" type="stmt"/>
-        <line num="24" count="5" type="stmt"/>
-        <line num="25" count="5" type="stmt"/>
-        <line num="27" count="16" type="stmt"/>
-        <line num="28" count="16" type="stmt"/>
+        <line num="16" count="25" type="stmt"/>
+        <line num="17" count="25" type="stmt"/>
+        <line num="18" count="25" type="stmt"/>
+        <line num="20" count="25" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="22" count="8" type="stmt"/>
+        <line num="23" count="8" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="27" count="25" type="stmt"/>
+        <line num="28" count="25" type="stmt"/>
       </file>
       <file name="PageStateContext.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/contexts/PageStateContext.tsx">
         <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -246,13 +257,13 @@
         <line num="4" count="4" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
         <line num="10" count="4" type="stmt"/>
-        <line num="13" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="12" type="stmt"/>
-        <line num="15" count="12" type="stmt"/>
-        <line num="16" count="12" type="stmt"/>
-        <line num="19" count="12" type="stmt"/>
-        <line num="21" count="12" type="stmt"/>
-        <line num="31" count="12" type="stmt"/>
+        <line num="13" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="16" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="21" count="16" type="stmt"/>
+        <line num="31" count="16" type="stmt"/>
       </file>
     </package>
     <package name="fixtures">
@@ -295,7 +306,7 @@
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="10" count="5" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
       </file>
     </package>
     <package name="hooks">
@@ -305,30 +316,30 @@
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="6" count="38" type="stmt"/>
-        <line num="7" count="38" type="stmt"/>
+        <line num="6" count="47" type="stmt"/>
+        <line num="7" count="47" type="stmt"/>
       </file>
       <file name="useEpisodesResponseContext.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/hooks/useEpisodesResponseContext.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="27" type="stmt"/>
-        <line num="7" count="27" type="stmt"/>
+        <line num="6" count="36" type="stmt"/>
+        <line num="7" count="36" type="stmt"/>
       </file>
       <file name="usePageStateContext.tsx" path="/home/nikolai/RSSchool/react-2023-q4/src/hooks/usePageStateContext.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="4" type="stmt"/>
         <line num="3" count="4" type="stmt"/>
         <line num="5" count="4" type="stmt"/>
-        <line num="6" count="212" type="stmt"/>
-        <line num="7" count="212" type="stmt"/>
+        <line num="6" count="273" type="stmt"/>
+        <line num="7" count="273" type="stmt"/>
       </file>
     </package>
     <package name="services">
-      <metrics statements="20" coveredstatements="19" conditionals="7" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <metrics statements="20" coveredstatements="20" conditionals="7" coveredconditionals="5" methods="6" coveredmethods="6"/>
       <file name="stapi.ts" path="/home/nikolai/RSSchool/react-2023-q4/src/services/stapi.ts">
-        <metrics statements="20" coveredstatements="19" conditionals="7" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <metrics statements="20" coveredstatements="20" conditionals="7" coveredconditionals="5" methods="6" coveredmethods="6"/>
         <line num="4" count="3" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
@@ -337,18 +348,18 @@
         <line num="28" count="4" type="stmt"/>
         <line num="30" count="4" type="cond" truecount="1" falsecount="1"/>
         <line num="33" count="3" type="stmt"/>
-        <line num="38" count="5" type="stmt"/>
-        <line num="39" count="5" type="cond" truecount="0" falsecount="1"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="42" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="43" count="5" type="stmt"/>
-        <line num="45" count="5" type="stmt"/>
-        <line num="46" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="8" type="stmt"/>
+        <line num="39" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="42" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="43" count="8" type="stmt"/>
+        <line num="45" count="8" type="stmt"/>
+        <line num="46" count="8" type="cond" truecount="1" falsecount="0"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="49" count="5" type="stmt"/>
-        <line num="56" count="5" type="stmt"/>
-        <line num="57" count="5" type="stmt"/>
-        <line num="59" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="49" count="8" type="stmt"/>
+        <line num="56" count="8" type="stmt"/>
+        <line num="57" count="8" type="stmt"/>
+        <line num="59" count="8" type="cond" truecount="1" falsecount="1"/>
       </file>
     </package>
   </project>

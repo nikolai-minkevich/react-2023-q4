@@ -14,7 +14,8 @@ import { PageStateProvider } from '../contexts/PageStateContext';
 import { EpisodesResponseProvider } from '../contexts/EpisodesResponseContext';
 import { EpisodeResponseProvider } from '../contexts/EpisodeResponseContext';
 import { EpisodeResponse } from '../fixtures/EpisodeResponse';
-import 'jest-location-mock';
+import NotFound from '../components/NotFound';
+
 const server = setupServer(episodes.basic, episode.basic);
 
 beforeEach(() => server.listen());
@@ -108,6 +109,27 @@ describe('Detailed Card component', () => {
     expect(detailedCardComponent).not.toBeInTheDocument();
   });
 
+  test('Make sure the component updates URL query parameter when page changes.', async () => {
+    server.use(episodes.basic, episode.basic);
+
+    setup();
+
+    const cardsLoader = await screen.findByLabelText('loader');
+    expect(cardsLoader).toBeInTheDocument();
+    const nextPage = await screen.findByLabelText('next page');
+    await userEvent.click(nextPage);
+
+    await screen.findAllByLabelText('card');
+
+    expect(window.location).not.toEqual('?pageNumber=1&pageSize=5&');
+    const prevPage = await screen.findByLabelText('next page');
+    await userEvent.click(prevPage);
+
+    await screen.findAllByLabelText('card');
+
+    expect(window.location).not.toEqual('?pageNumber=0&pageSize=5&');
+  });
+
   test('Check that the component retrieves the value from the local storage upon mounting', async () => {
     expect(localStorage.getItem('term')).not.toEqual('test');
     localStorage.setItem('term', 'test');
@@ -117,15 +139,19 @@ describe('Detailed Card component', () => {
     expect(searchInput).toHaveValue('test');
   });
 
-  test.todo(
-    'Check that clicking triggers an additional API call to fetch detailed information.'
-  );
-
-  test.todo(
-    'Make sure the component updates URL query parameter when page changes.'
-  );
-
-  test.todo(
-    'Ensure that the 404 page is displayed when navigating to an invalid routu'
-  );
+  test('Ensure that the 404 page is displayed when navigating to an invalid routu', async () => {
+    render(
+      <MemoryRouter>
+        <PageStateProvider>
+          <EpisodesResponseProvider>
+            <EpisodeResponseProvider>
+              <NotFound />
+            </EpisodeResponseProvider>
+          </EpisodesResponseProvider>
+        </PageStateProvider>
+      </MemoryRouter>
+    );
+    const notFound = await screen.findByLabelText('not found');
+    expect(notFound).toBeInTheDocument();
+  });
 });

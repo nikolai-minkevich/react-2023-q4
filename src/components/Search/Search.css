@@ -1,0 +1,16 @@
+.search {
+  display: flex;
+  padding: 10px;
+}
+
+.search__input {
+  width: 350px;
+  color: aliceblue;
+  background-color: rgb(46, 46, 46);
+  font-size: large;
+  padding-left: 10px;
+}
+
+.search__button {
+  margin-left: 10px;
+}

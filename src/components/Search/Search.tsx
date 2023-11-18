@@ -3,7 +3,7 @@ import './Search.css';
 
 import type { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTerm } from './searchSlice';
+import { setTerm, search } from './searchSlice';
 
 const Search: FC = () => {
   const term = useSelector((state: RootState) => state.search.term);
@@ -16,10 +16,14 @@ const Search: FC = () => {
         type="text"
         defaultValue={term}
         placeholder="Search by title"
-        onChange={(e) => dispatch(setTerm(e.target.value))}
         aria-label="search input"
+        onChange={(e) => dispatch(setTerm(e.target.value))}
       />
-      <button className="search__button" aria-label="search button">
+      <button
+        className="search__button"
+        aria-label="search button"
+        onClick={() => dispatch(search())}
+      >
         Search
       </button>
     </div>

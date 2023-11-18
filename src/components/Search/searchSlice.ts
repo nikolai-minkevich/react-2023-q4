@@ -15,11 +15,13 @@ export const searchSlice = createSlice({
   reducers: {
     setTerm: (state, action: PayloadAction<string>) => {
       state.term = action.payload;
-      localStorage.setItem('term', action.payload);
+    },
+    search: (state) => {
+      localStorage.setItem('term', state.term);
     },
   },
 });
 
-export const { setTerm } = searchSlice.actions;
+export const { setTerm, search } = searchSlice.actions;
 
 export default searchSlice.reducer;

@@ -1,13 +1,14 @@
 import { FC, useCallback, ChangeEvent } from 'react';
 import './Pagination.css';
-import IPage from '../../interfaces/IPage';
+// import IPage from '../../interfaces/IPage';
 import { usePageStateContext } from '../../hooks/usePageStateContext';
+import { useGetAllEpisodesQuery } from '../../services/stapi';
 
-type TCardProps = {
-  page: IPage;
-};
+const Card: FC = () => {
+  const { data } = useGetAllEpisodesQuery();
 
-const Card: FC<TCardProps> = ({ page }: TCardProps) => {
+  const page = data?.page;
+
   const { setPageNumber, setPageSize } = usePageStateContext();
   const handlePrev = useCallback(() => {
     setPageNumber((prevCount?: number) => {
@@ -29,34 +30,41 @@ const Card: FC<TCardProps> = ({ page }: TCardProps) => {
     setPageSize(Number(e.target.value));
   };
 
-  if (page) {
-    return (
-      <div className="pagination" aria-label="pagination">
-        <button
-          onClick={handlePrev}
-          disabled={page.firstPage}
-          aria-label="previous page"
-        >
-          Prev.
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={page.lastPage}
-          aria-label="next page"
-        >
-          Next.
-        </button>
-        Page {page.pageNumber + 1} of {page.totalPages}. Show
-        <select value={page.pageSize} onChange={handlePageSize}>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="25">25</option>
-        </select>
-        items per page.
-      </div>
-    );
-  }
+  return (
+    <div className="pagination" aria-label="pagination">
+      <button
+        onClick={handlePrev}
+        disabled={!page || page.firstPage}
+        aria-label="previous page"
+      >
+        Prev.
+      </button>
+      <button
+        onClick={handleNext}
+        disabled={!page || page.lastPage}
+        aria-label="next page"
+      >
+        Next.
+      </button>
+      {page && (
+        <>
+          Page {page.pageNumber + 1} of {page.totalPages}.
+        </>
+      )}{' '}
+      Show {` `}
+      <select
+        value={page ? page.pageSize : '5'}
+        onChange={handlePageSize}
+        disabled={!page}
+      >
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="25">25</option>
+      </select>
+      {` `} items per page.
+    </div>
+  );
 };
 
 export default Card;

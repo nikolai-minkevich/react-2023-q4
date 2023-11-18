@@ -1,48 +1,38 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import Nav from '../Nav';
-import Content from '../Content';
+import CardList from '../CardList';
 import ErrorBoundary from '../ErrorBoundary';
 import './Page.css';
-import { useNavigate } from 'react-router-dom';
-import { usePageStateContext } from '../../hooks/usePageStateContext';
-import { useEpisodesResponseContext } from '../../hooks/useEpisodesResponseContext';
-import { useEpisodeResponseContext } from '../../hooks/useEpisodeResponseContext';
-import { Counter } from '../../features/counter/Counter';
-
-// Fix me: тип  TSearchState нужно перенести в контекст где будут храниться term
+import Pagination from '../Pagination';
 
 export type TSearchState = string;
 
 const Page: FC = (): React.JSX.Element => {
-  const { fetchItems, cards, page } = useEpisodesResponseContext();
-  const { term, selectedCard, pageNumber, pageSize } = usePageStateContext();
-  const navigate = useNavigate();
+  // useEffect(() => {
+  //   fetchItems();
+  // }, [fetchItems, term]);
 
-  useEffect(() => {
-    fetchItems();
-  }, [fetchItems, term]);
+  // useEffect(() => {
+  //   let url = `${location.pathname}?`;
+  //   if (pageNumber) {
+  //     url += `pageNumber=${pageNumber}&`;
+  //   }
+  //   if (pageSize) {
+  //     url += `pageSize=${pageSize}&`;
+  //   }
+  //   if (selectedCard) {
+  //     url += `&detailed=${selectedCard}`;
+  //   }
+  //   navigate(url);
+  // }, [navigate, pageNumber, pageSize, selectedCard]);
 
-  useEffect(() => {
-    let url = `${location.pathname}?`;
-    if (pageNumber) {
-      url += `pageNumber=${pageNumber}&`;
-    }
-    if (pageSize) {
-      url += `pageSize=${pageSize}&`;
-    }
-    if (selectedCard) {
-      url += `&detailed=${selectedCard}`;
-    }
-    navigate(url);
-  }, [navigate, pageNumber, pageSize, selectedCard]);
+  // const { fetchItem } = useEpisodeResponseContext();
 
-  const { fetchItem } = useEpisodeResponseContext();
-
-  useEffect(() => {
-    if (selectedCard) {
-      fetchItem();
-    }
-  }, [fetchItem, selectedCard]);
+  // useEffect(() => {
+  //   if (selectedCard) {
+  //     fetchItem();
+  //   }
+  // }, [fetchItem, selectedCard]);
 
   return (
     <>
@@ -56,10 +46,8 @@ const Page: FC = (): React.JSX.Element => {
       >
         <div className="page">
           <Nav></Nav>
-
-          <Content cards={cards} page={page} selectedCard={selectedCard} />
-
-          <Counter />
+          <Pagination />
+          <CardList />
         </div>
       </ErrorBoundary>
     </>

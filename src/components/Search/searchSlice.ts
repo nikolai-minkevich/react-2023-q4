@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-
-export interface CounterState {
+export interface SearchState {
   term: string;
 }
 
-const initialState: CounterState = {
+const initialState: SearchState = {
   term: localStorage.getItem('term') || '',
 };
 
@@ -16,12 +15,9 @@ export const searchSlice = createSlice({
     setTerm: (state, action: PayloadAction<string>) => {
       state.term = action.payload;
     },
-    search: (state) => {
-      localStorage.setItem('term', state.term);
-    },
   },
 });
 
-export const { setTerm, search } = searchSlice.actions;
+export const { setTerm } = searchSlice.actions;
 
 export default searchSlice.reducer;

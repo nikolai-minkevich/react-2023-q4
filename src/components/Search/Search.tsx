@@ -3,11 +3,20 @@ import './Search.css';
 
 import type { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTerm, search } from './searchSlice';
+import { setTerm } from './searchSlice';
+import { useGetAllEpisodesQuery } from '../../services/stapi';
 
 const Search: FC = () => {
   const term = useSelector((state: RootState) => state.search.term);
   const dispatch = useDispatch();
+
+  const { isLoading, refetch } = useGetAllEpisodesQuery();
+
+  console.log('isLoading 2', isLoading);
+  const handle = () => {
+    localStorage.setItem('term', term);
+    refetch();
+  };
 
   return (
     <div className="search">
@@ -22,7 +31,7 @@ const Search: FC = () => {
       <button
         className="search__button"
         aria-label="search button"
-        onClick={() => dispatch(search())}
+        onClick={handle}
       >
         Search
       </button>

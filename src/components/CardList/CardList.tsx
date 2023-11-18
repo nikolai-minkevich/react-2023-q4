@@ -1,24 +1,29 @@
 import { FC, Key } from 'react';
-import './Content.css';
+import './CardList.css';
 import Card from '../Card';
 import IEpisode from '../../interfaces/IEpisode';
 import Loader from '../Loader';
-import Pagination from '../Pagination';
 import DetailedView from '../DetailedView';
-import IPage from '../../interfaces/IPage';
+// import IPage from '../../interfaces/IPage';
+import { useGetAllEpisodesQuery } from '../../services/stapi';
 
-type TContentProps = {
-  cards: IEpisode[] | null;
-  page: IPage | null;
+type TCardListProps = {
+  // cards: IEpisode[] | null | undefined;
+  // page: IPage | null | undefined;
   selectedCard?: string;
 };
 
-const Content: FC<TContentProps> = ({
-  cards,
-  page,
+const CardList: FC<TCardListProps> = ({
+  // cards,
+  // page,
   selectedCard,
-}: TContentProps): React.JSX.Element => {
-  if (!cards || !page) {
+}: TCardListProps): React.JSX.Element => {
+  const { data, isLoading } = useGetAllEpisodesQuery();
+
+  const episodes = data?.episodes;
+  const page = data?.page;
+
+  if (isLoading || !episodes || !page) {
     return (
       <>
         <div className="content">
@@ -28,17 +33,16 @@ const Content: FC<TContentProps> = ({
     );
   }
 
-  if (cards.length === 0) {
+  if (episodes.length === 0) {
     return <div className="content">No data found for this search query</div>;
   }
 
   return (
     <>
       <div>
-        <Pagination page={page}></Pagination>
         <div className="content">
           <div className="cards">
-            {cards.map((card: IEpisode, index: Key) => (
+            {episodes.map((card: IEpisode, index: Key) => (
               <Card card={card} key={index}></Card>
             ))}
           </div>
@@ -49,4 +53,4 @@ const Content: FC<TContentProps> = ({
   );
 };
 
-export default Content;
+export default CardList;

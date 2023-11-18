@@ -1,7 +1,25 @@
 import IEpisodeResponse from '../interfaces/IEpisodeResponse';
 import IEpisodesResponse from '../interfaces/IEpisodesResponse';
 
-const ROOT = 'https://stapi.co/api/v1/rest';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+const ROOT = 'https://stapi.co/api/v1/rest/';
+
+// Define a service using a base URL and expected endpoints
+export const episodesApi = createApi({
+  reducerPath: 'episodesApi',
+  baseQuery: fetchBaseQuery({ baseUrl: ROOT }),
+  endpoints: (builder) => ({
+    getAllEpisodes: builder.query<IEpisodesResponse, void>({
+      query: () => `episode/search`,
+    }),
+    getEpisodeById: builder.query<IEpisodeResponse, string>({
+      query: (uid) => `episode?uid=${uid}`,
+    }),
+  }),
+});
+
+export const { useGetAllEpisodesQuery, useGetEpisodeByIdQuery } = episodesApi;
 
 interface IGetEpisodesProps {
   term: string;
@@ -16,7 +34,7 @@ interface IGetEpisodeProps {
 export async function getEpisode({
   uid,
 }: IGetEpisodeProps): Promise<IEpisodeResponse> {
-  const url = `${ROOT}/episode?uid=${uid}`;
+  const url = `${ROOT}episode?uid=${uid}`;
   // `${ROOT}/episode?uid=${uid}`;
   const response = await fetch(url, {
     method: 'GET',
@@ -35,7 +53,7 @@ export async function getEpisodes({
   pageNumber,
   pageSize,
 }: IGetEpisodesProps): Promise<IEpisodesResponse> {
-  let url = `${ROOT}/episode/search?`;
+  let url = `${ROOT}episode/search?`;
   if (pageNumber) {
     url += `pageNumber=${pageNumber}&`;
   }

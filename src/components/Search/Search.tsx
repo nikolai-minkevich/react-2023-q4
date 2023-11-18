@@ -1,36 +1,25 @@
-import { FC, ChangeEvent, useState } from 'react';
+import { FC } from 'react';
 import './Search.css';
-import { usePageStateContext } from '../../hooks/usePageStateContext';
+
+import type { RootState } from '../../store';
+import { useSelector, useDispatch } from 'react-redux';
+import { setTerm } from './searchSlice';
 
 const Search: FC = () => {
-  const { setTerm } = usePageStateContext();
-  const defaultInputValue = localStorage.getItem('term') ?? '';
-  const [inputValue, setInputValue] = useState<string>(defaultInputValue);
-
-  const changeInput = (event: ChangeEvent<HTMLInputElement>): void => {
-    setInputValue(event.target.value);
-  };
-
-  const handleSearch = (): void => {
-    localStorage.setItem('term', inputValue);
-    setTerm(inputValue);
-  };
+  const term = useSelector((state: RootState) => state.search.term);
+  const dispatch = useDispatch();
 
   return (
     <div className="search">
       <input
         className="search__input"
         type="text"
-        defaultValue={inputValue}
+        defaultValue={term}
         placeholder="Search by title"
-        onChange={changeInput}
+        onChange={(e) => dispatch(setTerm(e.target.value))}
         aria-label="search input"
       />
-      <button
-        className="search__button"
-        onClick={handleSearch}
-        aria-label="search button"
-      >
+      <button className="search__button" aria-label="search button">
         Search
       </button>
     </div>

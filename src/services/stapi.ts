@@ -5,13 +5,19 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const ROOT = 'https://stapi.co/api/v1/rest/';
 
-// Define a service using a base URL and expected endpoints
 export const episodesApi = createApi({
   reducerPath: 'episodesApi',
   baseQuery: fetchBaseQuery({ baseUrl: ROOT }),
   endpoints: (builder) => ({
-    getAllEpisodes: builder.query<IEpisodesResponse, void>({
-      query: () => `episode/search`,
+    getAllEpisodes: builder.query<IEpisodesResponse, string>({
+      query: (term: string) => ({
+        url: `episode/search`,
+        method: 'post',
+        body: new URLSearchParams({ title: term, name: term }).toString(),
+        headers: {
+          'Content-type': 'application/x-www-form-urlencoded',
+        },
+      }),
     }),
     getEpisodeById: builder.query<IEpisodeResponse, string>({
       query: (uid) => `episode?uid=${uid}`,

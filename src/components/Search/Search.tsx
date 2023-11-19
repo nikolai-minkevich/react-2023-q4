@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './Search.css';
 
 import type { RootState } from '../../store';
@@ -10,12 +10,15 @@ const Search: FC = () => {
   const term = useSelector((state: RootState) => state.search.term);
   const dispatch = useDispatch();
 
-  const { isLoading, refetch } = useGetAllEpisodesQuery();
+  const [internalTerm, setInternalTerm] = useState('');
+
+  const { isLoading } = useGetAllEpisodesQuery(term);
 
   console.log('isLoading 2', isLoading);
-  const handle = () => {
-    localStorage.setItem('term', term);
-    refetch();
+
+  const handleSearchButton = () => {
+    localStorage.setItem('term', internalTerm);
+    dispatch(setTerm(internalTerm));
   };
 
   return (
@@ -26,12 +29,13 @@ const Search: FC = () => {
         defaultValue={term}
         placeholder="Search by title"
         aria-label="search input"
-        onChange={(e) => dispatch(setTerm(e.target.value))}
+        onChange={(e) => setInternalTerm(e.target.value)}
       />
       <button
         className="search__button"
         aria-label="search button"
-        onClick={handle}
+        onClick={handleSearchButton}
+        disabled={isLoading}
       >
         Search
       </button>

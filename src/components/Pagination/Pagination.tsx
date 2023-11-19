@@ -3,9 +3,12 @@ import './Pagination.css';
 // import IPage from '../../interfaces/IPage';
 import { usePageStateContext } from '../../hooks/usePageStateContext';
 import { useGetAllEpisodesQuery } from '../../services/stapi';
+import type { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 
 const Card: FC = () => {
-  const { data } = useGetAllEpisodesQuery();
+  const term = useSelector((state: RootState) => state.search.term);
+  const { data } = useGetAllEpisodesQuery(term);
 
   const page = data?.page;
 

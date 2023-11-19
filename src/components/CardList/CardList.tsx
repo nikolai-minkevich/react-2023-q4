@@ -6,6 +6,8 @@ import Loader from '../Loader';
 import DetailedView from '../DetailedView';
 // import IPage from '../../interfaces/IPage';
 import { useGetAllEpisodesQuery } from '../../services/stapi';
+import type { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 
 type TCardListProps = {
   // cards: IEpisode[] | null | undefined;
@@ -18,7 +20,8 @@ const CardList: FC<TCardListProps> = ({
   // page,
   selectedCard,
 }: TCardListProps): React.JSX.Element => {
-  const { data, isLoading } = useGetAllEpisodesQuery();
+  const term = useSelector((state: RootState) => state.search.term);
+  const { data, isLoading } = useGetAllEpisodesQuery(term);
 
   const episodes = data?.episodes;
   const page = data?.page;

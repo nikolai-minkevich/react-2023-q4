@@ -1,6 +1,6 @@
 import IEpisodeResponse from '../interfaces/IEpisodeResponse';
 import IEpisodesResponse from '../interfaces/IEpisodesResponse';
-
+import IGetAllEpisodesArgs from '../interfaces/IGetAllEpisodesArgs';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const ROOT = 'https://stapi.co/api/v1/rest/';
@@ -9,9 +9,9 @@ export const episodesApi = createApi({
   reducerPath: 'episodesApi',
   baseQuery: fetchBaseQuery({ baseUrl: ROOT }),
   endpoints: (builder) => ({
-    getAllEpisodes: builder.query<IEpisodesResponse, string>({
-      query: (term: string) => ({
-        url: `episode/search`,
+    getAllEpisodes: builder.query<IEpisodesResponse, IGetAllEpisodesArgs>({
+      query: ({ term, pageNumber, pageSize }) => ({
+        url: `episode/search?${buildSearchParams(pageNumber, pageSize)}`,
         method: 'post',
         body: new URLSearchParams({ title: term, name: term }).toString(),
         headers: {
@@ -25,60 +25,15 @@ export const episodesApi = createApi({
   }),
 });
 
-export const { useGetAllEpisodesQuery, useGetEpisodeByIdQuery } = episodesApi;
-
-interface IGetEpisodesProps {
-  term: string;
-  pageNumber?: number;
-  pageSize?: number;
-}
-
-interface IGetEpisodeProps {
-  uid: string;
-}
-
-export async function getEpisode({
-  uid,
-}: IGetEpisodeProps): Promise<IEpisodeResponse> {
-  const url = `${ROOT}episode?uid=${uid}`;
-  // `${ROOT}/episode?uid=${uid}`;
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-    },
-  })
-    .then((response) => response.json())
-    .then((response) => response);
-
-  return response || {};
-}
-
-export async function getEpisodes({
-  term,
-  pageNumber,
-  pageSize,
-}: IGetEpisodesProps): Promise<IEpisodesResponse> {
-  let url = `${ROOT}episode/search?`;
+const buildSearchParams = (pageNumber?: number, pageSize?: number) => {
+  let searchParams = '';
   if (pageNumber) {
-    url += `pageNumber=${pageNumber}&`;
+    searchParams += `pageNumber=${pageNumber}`;
   }
   if (pageSize) {
-    url += `pageSize=${pageSize}&`;
+    searchParams += `&pageSize=${pageSize}`;
   }
-  let body = null;
-  if (term) {
-    body = new URLSearchParams({ title: term, name: term }).toString();
-  }
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-    },
-    body,
-  })
-    .then((response) => response.json())
-    .then((response) => response);
+  return searchParams;
+};
 
-  return response || {};
-}
+export const { useGetAllEpisodesQuery, useGetEpisodeByIdQuery } = episodesApi;

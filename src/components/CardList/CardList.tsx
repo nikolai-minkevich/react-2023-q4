@@ -11,15 +11,23 @@ import { useSelector } from 'react-redux';
 
 const CardList: FC = (): React.JSX.Element => {
   const term = useSelector((state: RootState) => state.search.term);
+  const pageNumber = useSelector(
+    (state: RootState) => state.pagination.pageNumber
+  );
+  const pageSize = useSelector((state: RootState) => state.pagination.pageSize);
   const selectedCardId = useSelector(
     (state: RootState) => state.cardList.selectedCardId
   );
-  const { data, isLoading } = useGetAllEpisodesQuery(term);
+  const { data, isLoading, isFetching } = useGetAllEpisodesQuery({
+    term,
+    pageNumber,
+    pageSize,
+  });
 
   const episodes = data?.episodes;
   const page = data?.page;
 
-  if (isLoading || !episodes || !page) {
+  if (isLoading || !episodes || !page || isFetching) {
     return (
       <>
         <div className="content">

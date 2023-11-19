@@ -6,21 +6,12 @@ import { RenderResult, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { MemoryRouter } from 'react-router-dom';
-import { PageStateProvider } from '../contexts/PageStateContext';
-import { EpisodesResponseProvider } from '../contexts/EpisodesResponseContext';
-import { EpisodeResponseProvider } from '../contexts/EpisodeResponseContext';
 import Navbar from '../components/Nav/Nav';
 
 const setup = (): RenderResult => {
   return render(
     <MemoryRouter>
-      <PageStateProvider>
-        <EpisodesResponseProvider>
-          <EpisodeResponseProvider>
-            <Navbar />
-          </EpisodeResponseProvider>
-        </EpisodesResponseProvider>
-      </PageStateProvider>
+      <Navbar />
     </MemoryRouter>
   );
 };

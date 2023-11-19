@@ -10,9 +10,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { setupServer } from 'msw/node';
 import * as episodes from '../handlers/episodes.handler';
 import * as episode from '../handlers/episode.handler';
-import { PageStateProvider } from '../contexts/PageStateContext';
-import { EpisodesResponseProvider } from '../contexts/EpisodesResponseContext';
-import { EpisodeResponseProvider } from '../contexts/EpisodeResponseContext';
 import { EpisodeResponse } from '../fixtures/EpisodeResponse';
 import NotFound from '../components/NotFound';
 
@@ -25,13 +22,7 @@ afterAll(() => server.close());
 const setup = (): RenderResult => {
   return render(
     <MemoryRouter>
-      <PageStateProvider>
-        <EpisodesResponseProvider>
-          <EpisodeResponseProvider>
-            <Page />
-          </EpisodeResponseProvider>
-        </EpisodesResponseProvider>
-      </PageStateProvider>
+      <Page />
     </MemoryRouter>
   );
 };
@@ -142,13 +133,7 @@ describe('Detailed Card component', () => {
   test('Ensure that the 404 page is displayed when navigating to an invalid routu', async () => {
     render(
       <MemoryRouter>
-        <PageStateProvider>
-          <EpisodesResponseProvider>
-            <EpisodeResponseProvider>
-              <NotFound />
-            </EpisodeResponseProvider>
-          </EpisodesResponseProvider>
-        </PageStateProvider>
+        <NotFound />
       </MemoryRouter>
     );
     const notFound = await screen.findByLabelText('not found');

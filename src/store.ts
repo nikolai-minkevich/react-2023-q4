@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import searchSlice from './components/Search/searchSlice';
 import cardListSlice from './components/CardList/CardListSlice';
+import paginationSlice from './components/Pagination/paginationSlice';
 
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { episodesApi } from './services/stapi';
@@ -9,6 +10,7 @@ export const store = configureStore({
   reducer: {
     search: searchSlice,
     cardList: cardListSlice,
+    pagination: paginationSlice,
     [episodesApi.reducerPath]: episodesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

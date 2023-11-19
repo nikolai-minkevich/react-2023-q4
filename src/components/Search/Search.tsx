@@ -1,22 +1,31 @@
 import { FC, useState } from 'react';
 import './Search.css';
-
-import type { RootState } from '../../store';
-import { useSelector, useDispatch } from 'react-redux';
 import { setTerm } from './searchSlice';
 import { useGetAllEpisodesQuery } from '../../services/stapi';
+import { setSelectedCardId } from '../CardList/CardListSlice';
+import type { RootState } from '../../store';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Search: FC = () => {
   const term = useSelector((state: RootState) => state.search.term);
+  const pageNumber = useSelector(
+    (state: RootState) => state.pagination.pageNumber
+  );
+  const pageSize = useSelector((state: RootState) => state.pagination.pageSize);
   const dispatch = useDispatch();
 
   const [internalTerm, setInternalTerm] = useState('');
 
-  const { isLoading } = useGetAllEpisodesQuery(term);
+  const { isLoading, isFetching } = useGetAllEpisodesQuery({
+    term,
+    pageNumber,
+    pageSize,
+  });
 
   const handleSearchButton = () => {
     localStorage.setItem('term', internalTerm);
     dispatch(setTerm(internalTerm));
+    dispatch(setSelectedCardId(''));
   };
 
   return (
@@ -33,7 +42,7 @@ const Search: FC = () => {
         className="search__button"
         aria-label="search button"
         onClick={handleSearchButton}
-        disabled={isLoading}
+        disabled={isLoading || isFetching}
       >
         Search
       </button>

@@ -4,23 +4,16 @@ import Card from '../Card';
 import IEpisode from '../../interfaces/IEpisode';
 import Loader from '../Loader';
 import DetailedView from '../DetailedView';
-// import IPage from '../../interfaces/IPage';
+
 import { useGetAllEpisodesQuery } from '../../services/stapi';
 import type { RootState } from '../../store';
 import { useSelector } from 'react-redux';
 
-type TCardListProps = {
-  // cards: IEpisode[] | null | undefined;
-  // page: IPage | null | undefined;
-  selectedCard?: string;
-};
-
-const CardList: FC<TCardListProps> = ({
-  // cards,
-  // page,
-  selectedCard,
-}: TCardListProps): React.JSX.Element => {
+const CardList: FC = (): React.JSX.Element => {
   const term = useSelector((state: RootState) => state.search.term);
+  const selectedCardId = useSelector(
+    (state: RootState) => state.cardList.selectedCardId
+  );
   const { data, isLoading } = useGetAllEpisodesQuery(term);
 
   const episodes = data?.episodes;
@@ -49,7 +42,7 @@ const CardList: FC<TCardListProps> = ({
               <Card card={card} key={index}></Card>
             ))}
           </div>
-          {selectedCard && <DetailedView />}
+          {selectedCardId && <DetailedView />}
         </div>
       </div>
     </>

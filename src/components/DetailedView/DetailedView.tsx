@@ -2,18 +2,21 @@ import { FC, Key } from 'react';
 import './DetailedView.css';
 import Loader from '../Loader';
 import IWriter from '../../interfaces/IWriter';
-import { usePageStateContext } from '../../hooks/usePageStateContext';
-import { useEpisodeResponseContext } from '../../hooks/useEpisodeResponseContext';
+import type { RootState } from '../../store';
+import { useSelector, useDispatch } from 'react-redux';
+import { useGetEpisodeByIdQuery } from '../../services/stapi';
+import { setSelectedCardId } from '../CardList/CardListSlice';
 
 const DetailedView: FC = () => {
-  const { setSelectedCard } = usePageStateContext();
-  const { detailedInfo } = useEpisodeResponseContext();
+  const selectedCardId = useSelector(
+    (state: RootState) => state.cardList.selectedCardId
+  );
+  const dispatch = useDispatch();
 
-  const handleClose = () => {
-    setSelectedCard(undefined);
-  };
+  const { data, isLoading } = useGetEpisodeByIdQuery(selectedCardId);
+  const detailedInfo = data?.episode;
 
-  if (!detailedInfo) {
+  if (isLoading || !detailedInfo) {
     return (
       <>
         <div className="detailed-view" aria-label="detailed card loader">
@@ -26,7 +29,7 @@ const DetailedView: FC = () => {
     <div aria-label="detailed card">
       <div
         className="close-button"
-        onClick={handleClose}
+        onClick={() => dispatch(setSelectedCardId(''))}
         aria-label="close button"
       >
         ❌

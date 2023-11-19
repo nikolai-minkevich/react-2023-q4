@@ -1,23 +1,27 @@
 import { FC } from 'react';
 import './Card.css';
 import IEpisode from '../../interfaces/IEpisode';
-import { usePageStateContext } from '../../hooks/usePageStateContext';
+
+import type { RootState } from '../../store';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelectedCardId } from '../CardList/CardListSlice';
 
 type TCardProps = {
   card: IEpisode;
 };
 
 const Card: FC<TCardProps> = ({ card }: TCardProps) => {
-  const { selectedCard, setSelectedCard } = usePageStateContext();
-  const handleSelect = () => {
-    setSelectedCard(card.uid);
-  };
-  const isSelected = card.uid === selectedCard;
+  const selectedCardId = useSelector(
+    (state: RootState) => state.cardList.selectedCardId
+  );
+  const dispatch = useDispatch();
+
+  const isSelected = card.uid === selectedCardId;
 
   return (
     <div
       className={`card ${isSelected && 'card_selected'}`}
-      onClick={handleSelect}
+      onClick={() => dispatch(setSelectedCardId(card.uid))}
       aria-label="card"
     >
       <div className="card__section-about">

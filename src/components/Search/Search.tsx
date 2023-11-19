@@ -14,8 +14,6 @@ const Search: FC = () => {
 
   const { isLoading } = useGetAllEpisodesQuery(term);
 
-  console.log('isLoading 2', isLoading);
-
   const handleSearchButton = () => {
     localStorage.setItem('term', internalTerm);
     dispatch(setTerm(internalTerm));

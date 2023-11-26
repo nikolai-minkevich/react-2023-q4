@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import './ThrowError.css';
 
 type TThrowErrorState = boolean;
 

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './NotFound.css';
 import { Link } from 'react-router-dom';
 
 const NotFound: FC = (): React.JSX.Element => (

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './Pagination.css';
 
 import { useGetAllEpisodesQuery } from '../../services/stapi';
 import type { RootState } from '../../store';

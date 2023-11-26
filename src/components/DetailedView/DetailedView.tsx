@@ -1,5 +1,4 @@
 import { FC, Key } from 'react';
-import './DetailedView.css';
 import Loader from '../Loader';
 import IWriter from '../../interfaces/IWriter';
 import type { RootState } from '../../store';

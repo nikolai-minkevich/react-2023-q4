@@ -1,4 +1,3 @@
-import './Nav.css';
 import Search from '../Search';
 import Logo from '../Logo';
 import ThrowError from '../ThrowError';

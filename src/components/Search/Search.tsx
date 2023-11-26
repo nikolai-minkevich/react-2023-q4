@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import './Search.css';
 import { setTerm } from './searchSlice';
 import { useGetAllEpisodesQuery } from '../../services/stapi';
 import { setSelectedCardId } from '../CardList/CardListSlice';

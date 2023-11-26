@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './Logo.css';
 
 const Logo: FC = (): React.JSX.Element => (
   <>

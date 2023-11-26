@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import './Card.css';
 import IEpisode from '../../interfaces/IEpisode';
 
 import type { RootState } from '../../store';

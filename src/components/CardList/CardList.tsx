@@ -1,5 +1,4 @@
 import { FC, Key } from 'react';
-import './CardList.css';
 import Card from '../Card';
 import IEpisode from '../../interfaces/IEpisode';
 import Loader from '../Loader';

@@ -1,0 +1,9 @@
+.throwError {
+  display: flex;
+  padding: 10px;
+}
+
+.throwError__button {
+  margin-left: 10px;
+  background-color: brown;
+}

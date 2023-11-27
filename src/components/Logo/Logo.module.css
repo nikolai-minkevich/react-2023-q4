@@ -1,0 +1,19 @@
+.logo {
+  padding: 10px;
+}
+
+.logo__title {
+  font-size: large;
+}
+
+.logo__author {
+  font-size: small;
+}
+
+.link {
+  color: aquamarine;
+}
+
+.link:hover {
+  color: aqua;
+}

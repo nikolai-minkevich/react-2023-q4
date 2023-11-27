@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import styles from './ThrowError.module.css';
 
 type TThrowErrorState = boolean;
 
@@ -16,8 +17,8 @@ const ThrowError: FC = (): React.JSX.Element => {
     return <div>{test.data.test}</div>;
   }
   return (
-    <div className="throw-error">
-      <button className="throw-error__button" onClick={handleClick}>
+    <div className={styles.throwError}>
+      <button className={styles.throwError__button} onClick={handleClick}>
         Throw an error
       </button>
     </div>

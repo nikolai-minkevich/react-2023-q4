@@ -5,6 +5,7 @@ import type { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
 import { useGetEpisodeByIdQuery } from '../../services/stapi';
 import { setSelectedCardId } from '../CardList/CardListSlice';
+import styles from './DetailedView.module.css';
 
 const DetailedView: FC = () => {
   const selectedCardId = useSelector(
@@ -18,7 +19,7 @@ const DetailedView: FC = () => {
   if (isLoading || !detailedInfo) {
     return (
       <>
-        <div className="detailed-view" aria-label="detailed card loader">
+        <div className={styles.detailedView} aria-label="detailed card loader">
           <Loader />
         </div>
       </>
@@ -27,13 +28,13 @@ const DetailedView: FC = () => {
   return (
     <div aria-label="detailed card">
       <div
-        className="close-button"
+        className={styles.closeButton}
         onClick={() => dispatch(setSelectedCardId(''))}
         aria-label="close button"
       >
         ❌
       </div>
-      <div className="detailed-view">
+      <div className={styles.detailedView}>
         <div>
           <h2>{detailedInfo.title}</h2>
         </div>

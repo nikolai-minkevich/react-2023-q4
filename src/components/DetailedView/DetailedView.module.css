@@ -1,4 +1,4 @@
-.detailed-view {
+.detailedView {
   display: flex;
   flex-direction: column;
   min-width: 400px;
@@ -6,7 +6,7 @@
   padding: 10px;
 }
 
-.close-button {
+.closeButton {
   position: relative;
   top: 20px;
   left: 390px;

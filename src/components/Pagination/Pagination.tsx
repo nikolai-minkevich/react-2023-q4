@@ -5,6 +5,8 @@ import type { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPageNumber, setPageSize } from './paginationSlice';
 
+import styles from './Pagination.module.css';
+
 const Card: FC = () => {
   const term = useSelector((state: RootState) => state.search.term);
   const pageNumber = useSelector(
@@ -35,9 +37,10 @@ const Card: FC = () => {
   };
 
   return (
-    <div className="pagination" aria-label="pagination">
+    <div className={styles.pagination} aria-label="pagination">
       <button
         onClick={handlePrev}
+        className={styles.pagination__button}
         disabled={!page || page.firstPage || isFetching || isLoading}
         aria-label="previous page"
       >
@@ -45,6 +48,7 @@ const Card: FC = () => {
       </button>
       <button
         onClick={handleNext}
+        className={styles.pagination__button}
         disabled={!page || page.lastPage || isFetching || isLoading}
         aria-label="next page"
       >

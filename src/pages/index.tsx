@@ -1,10 +1,6 @@
 import React from 'react';
-import Logo from '../components/Logo';
+import Page from '../components/Page';
 
 export default function App() {
-  return (
-    <div>
-      <Logo />
-    </div>
-  );
+  return <Page />;
 }

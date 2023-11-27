@@ -6,15 +6,14 @@ import CardList from '../CardList';
 import Pagination from '../Pagination';
 import { store } from '../../store';
 import { Provider } from 'react-redux';
+import styles from './Page.module.css';
 
 export type TSearchState = string;
 
 const Page = (): React.JSX.Element => {
-  // return (<div>Next</div>)
-
   return (
     <Provider store={store}>
-      <div className="page">
+      <div className={styles.page}>
         <Nav></Nav>
         <Pagination />
         <CardList />

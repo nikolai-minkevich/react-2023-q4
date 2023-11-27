@@ -6,7 +6,7 @@ export interface CardListState {
 }
 
 const initialState: CardListState = {
-  term: localStorage.getItem('term') || '',
+  term: /*localStorage.getItem('term') ||*/ '',
   selectedCardId: '',
 };
 

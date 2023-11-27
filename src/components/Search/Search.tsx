@@ -4,6 +4,7 @@ import { useGetAllEpisodesQuery } from '../../services/stapi';
 import { setSelectedCardId } from '../CardList/CardListSlice';
 import type { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
+import styles from './Search.module.css';
 
 const Search: FC = () => {
   const term = useSelector((state: RootState) => state.search.term);
@@ -28,9 +29,9 @@ const Search: FC = () => {
   };
 
   return (
-    <div className="search">
+    <div className={styles.search}>
       <input
-        className="search__input"
+        className={styles.search__input}
         type="text"
         defaultValue={term}
         placeholder="Search by title"
@@ -38,7 +39,7 @@ const Search: FC = () => {
         onChange={(e) => setInternalTerm(e.target.value)}
       />
       <button
-        className="search__button"
+        className={styles.search__button}
         aria-label="search button"
         onClick={handleSearchButton}
         disabled={isLoading || isFetching}

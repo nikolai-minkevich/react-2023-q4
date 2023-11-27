@@ -1,9 +1,9 @@
-.throw-error {
+.throwError {
   display: flex;
   padding: 10px;
 }
 
-.throw-error__button {
+.throwError__button {
   margin-left: 10px;
   background-color: brown;
 }

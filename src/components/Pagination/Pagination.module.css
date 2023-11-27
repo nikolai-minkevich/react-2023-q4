@@ -1,3 +1,7 @@
 .pagination {
   padding: 5px;
 }
+
+.pagination__button {
+  color: aliceblue;
+}

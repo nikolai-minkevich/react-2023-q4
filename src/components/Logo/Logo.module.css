@@ -10,10 +10,10 @@
   font-size: small;
 }
 
-a {
+.link {
   color: aquamarine;
 }
 
-a:hover {
+.link:hover {
   color: aqua;
 }

@@ -4,4 +4,4 @@ export default function OldForm() {
       <div>Uncontrolled old-form</div>
     </>
   );
-}
+};

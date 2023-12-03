@@ -6,17 +6,14 @@ import '../styles/form.css';
 import { useDispatch } from 'react-redux';
 import { setData } from '../appSlice';
 import { Link } from 'react-router-dom';
-
-interface IFormInput {
-  name: string;
-}
+import IFormData from '../interfaces/form-data';
 
 export const Form: React.FC = () => {
   const dispatch = useDispatch();
 
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const { register, handleSubmit } = useForm<IFormData>();
 
-  const onSubmit = (data: IFormInput) => {
+  const onSubmit = (data: IFormData) => {
     console.log(data);
     dispatch(setData(data));
   };

@@ -1,28 +1,65 @@
-/* Style inputs */
-input[type='text'],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 0px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the submit button */
+label {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+.input-field input {
+  margin-top: 5px;
+}
+
+input {
+  height: 35px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
 input[type='submit'] {
-  width: 100%;
-  background-color: #04aa6d;
+  margin-top: 20px;
+  background-color: #007bff;
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+  border: none;
 }
 
-/* Add a background color to the submit button on mouse-over */
 input[type='submit']:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
+}
+
+select {
+  height: 40px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+p {
+  color: rgb(225, 104, 104);
+  margin: 5px 0 0 0;
 }

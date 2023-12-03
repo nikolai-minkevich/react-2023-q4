@@ -10,9 +10,17 @@ export interface AppState {
 const initialState: AppState = {
   dataNewForm: {
     name: '',
+    age: 0,
+    email: '',
+    gender: '',
+    isAccept: false,
   },
   dataOldForm: {
     name: '',
+    age: 0,
+    email: '',
+    gender: '',
+    isAccept: false,
   },
 };
 

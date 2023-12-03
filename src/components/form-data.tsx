@@ -6,13 +6,23 @@ type TFormDataProps = {
 };
 
 const FormData: FC<TFormDataProps> = ({ data }: TFormDataProps) => {
+  if (!data.name) {
+    return <span>No form data provided yet</span>;
+  }
   return (
     <>
-      {Object.entries(data).map(([key, value], index) => (
-        <p key={index}>
-          {key}: {value}
-        </p>
-      ))}
+      {Object.entries(data).map(([key, value], index) => {
+        console.log(key, value);
+        if (typeof value === 'boolean') {
+          value = value ? '✅' : '❌';
+        }
+
+        return (
+          <div key={index}>
+            {key}: {value}
+          </div>
+        );
+      })}
     </>
   );
 };

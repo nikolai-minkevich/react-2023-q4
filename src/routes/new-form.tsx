@@ -3,33 +3,33 @@ import { useForm } from 'react-hook-form';
 
 import '../styles/form.css';
 
-import type { RootState } from '../store';
-import { useSelector, useDispatch } from 'react-redux';
-import { setName } from '../appSlice';
+import { useDispatch } from 'react-redux';
+import { setData } from '../appSlice';
+import { Link } from 'react-router-dom';
 
 interface IFormInput {
   name: string;
 }
 
 export const Form: React.FC = () => {
-  const name1 = useSelector((state: RootState) => state.app.name);
   const dispatch = useDispatch();
 
   const { register, handleSubmit } = useForm<IFormInput>();
 
   const onSubmit = (data: IFormInput) => {
     console.log(data);
+    dispatch(setData(data));
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>Name {name1}</label>
-      <input
-        {...register('name')}
-        onChange={(e) => dispatch(setName(e.target.value))}
-      />
+    <>
+      <Link to={'/'}>Return to main page without saving</Link>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label>Name</label>
+        <input {...register('name')} />
 
-      <input type="submit" />
-    </form>
+        <input type="submit" />
+      </form>
+    </>
   );
 };

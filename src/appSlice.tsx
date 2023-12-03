@@ -1,23 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import IFormData from './interfaces/form-data';
+
 export interface AppState {
-  name: string;
+  data: IFormData;
 }
 
 const initialState: AppState = {
-  name: '',
+  data: {
+    name: '',
+  },
 };
 
 export const searchSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setName: (state, action: PayloadAction<string>) => {
-      state.name = action.payload;
+    setData: (state, action: PayloadAction<IFormData>) => {
+      state.data = action.payload;
     },
   },
 });
 
-export const { setName } = searchSlice.actions;
+export const { setData } = searchSlice.actions;
 
 export default searchSlice.reducer;

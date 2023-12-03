@@ -3,11 +3,15 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import IFormData from './interfaces/form-data';
 
 export interface AppState {
-  data: IFormData;
+  dataNewForm: IFormData;
+  dataOldForm: IFormData;
 }
 
 const initialState: AppState = {
-  data: {
+  dataNewForm: {
+    name: '',
+  },
+  dataOldForm: {
     name: '',
   },
 };
@@ -16,12 +20,15 @@ export const searchSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    setData: (state, action: PayloadAction<IFormData>) => {
-      state.data = action.payload;
+    setDataNewForm: (state, action: PayloadAction<IFormData>) => {
+      state.dataNewForm = action.payload;
+    },
+    setDataOldForm: (state, action: PayloadAction<IFormData>) => {
+      state.dataOldForm = action.payload;
     },
   },
 });
 
-export const { setData } = searchSlice.actions;
+export const { setDataNewForm } = searchSlice.actions;
 
 export default searchSlice.reducer;

@@ -7,7 +7,8 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export default function App() {
-  const data1 = useSelector((state: RootState) => state.app.data);
+  const dataNewForm = useSelector((state: RootState) => state.app.dataNewForm);
+  const dataOldForm = useSelector((state: RootState) => state.app.dataOldForm);
 
   return (
     <>
@@ -25,14 +26,28 @@ export default function App() {
 
       <h1>Data</h1>
       <div className="dataContainer">
-        <div className="oldFormData">
-          <h2>Old form</h2>
-          <FormData data={data1} />
-        </div>
-        <div className="newFormData">
-          <h2>New form</h2>
-          <FormData data={data1} />
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <h2>Old form</h2>
+              </th>
+              <th>
+                <h2>New form</h2>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <FormData data={dataOldForm} />
+              </td>
+              <td>
+                <FormData data={dataNewForm} />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </>
   );

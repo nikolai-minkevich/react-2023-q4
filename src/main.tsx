@@ -4,8 +4,10 @@ import App from './App';
 import ErrorPage from './error-page';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import OldForm from './routes/old-form';
-import NewForm from './routes/new-form';
+import { Form } from './routes/new-form';
 import './index.css';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 const router = createBrowserRouter([
   {
@@ -19,12 +21,14 @@ const router = createBrowserRouter([
   },
   {
     path: 'new-form',
-    element: <NewForm />,
+    element: <Form />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );

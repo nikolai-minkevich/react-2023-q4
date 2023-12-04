@@ -10,24 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import IFormData from '../interfaces/form-data';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-
-const schema = yup.object().shape({
-  name: yup
-    .string()
-    .required('Name is a required field')
-    .matches(/^[A-Z]{1}[a-z]{0,}$/, 'Use capitalized name'),
-  age: yup.number().required('Age is a required field').min(0),
-  email: yup
-    .string()
-    .required('Email is a required field')
-    .matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, 'Not valid email'),
-  gender: yup.string().required('gender is a required field'),
-  isAccept: yup
-    .boolean()
-    .oneOf([true], 'acception is a required field')
-    .required(),
-});
+import schema from '../schemas/form';
 
 export const Form: React.FC = () => {
   const navigate = useNavigate();
@@ -41,7 +24,14 @@ export const Form: React.FC = () => {
 
   const onSubmit = (data: IFormData) => {
     console.log(data);
-    dispatch(setDataNewForm(data));
+    const dataSorted: IFormData = {
+      name: data.name,
+      age: data.age,
+      email: data.email,
+      gender: data.gender,
+      isAccept: data.isAccept,
+    };
+    dispatch(setDataNewForm(dataSorted));
     navigate('/');
   };
 

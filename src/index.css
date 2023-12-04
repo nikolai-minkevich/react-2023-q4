@@ -52,3 +52,21 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.dataContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-data {
+  min-width: 300px;
+  padding: 5px;
+  background-color: black;
+  text-align: left;
+}
+
+.link {
+  margin-top: 20px;
+}

@@ -37,6 +37,6 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { setDataNewForm } = searchSlice.actions;
+export const { setDataNewForm, setDataOldForm } = searchSlice.actions;
 
 export default searchSlice.reducer;

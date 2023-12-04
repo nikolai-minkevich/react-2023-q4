@@ -13,41 +13,28 @@ export default function App() {
   return (
     <>
       <h1>Module 06</h1>
-      <p>
-        <Link to={`/old-form`}>
-          form created using uncontrolled components approach
-        </Link>
-      </p>
-      <p>
-        <Link to={`/new-form`}>
-          form created with the help of the React Hook Form
-        </Link>
-      </p>
 
-      <h1>Data</h1>
       <div className="dataContainer">
-        <table>
-          <thead>
-            <tr>
-              <th>
-                <h2>Old form</h2>
-              </th>
-              <th>
-                <h2>New form</h2>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <FormData data={dataOldForm} />
-              </td>
-              <td>
-                <FormData data={dataNewForm} />
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div>
+          <h2>Old form</h2>
+          <div className="form-data">
+            <FormData data={dataOldForm} />
+          </div>
+          <div className="link">
+            <Link to={`/old-form`}>Fill the old uncontrolled form</Link>
+          </div>
+        </div>
+        <div>
+          <h2>New form</h2>
+          <div className="form-data">
+            <FormData data={dataNewForm} />
+          </div>
+          <div className="link">
+            <Link to={`/new-form`}>
+              Fill the new form used `react-hook-form`
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
